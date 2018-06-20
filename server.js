@@ -35,11 +35,13 @@ router.get('/', function(req, res){
 const userRouter = require('./routes/user');
 const sedeRouter = require('./routes/sedes');
 const carpetaRouter = require('./routes/carpetas');
+const fileRouter = require('./routes/files');
 
 
 router.use('/user', userRouter);
 router.use('/sedes', sedeRouter);
 router.use('/carpetas', carpetaRouter);
+router.use('/files', fileRouter);
 
 app.use('/api', router);
 

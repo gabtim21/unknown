@@ -59,8 +59,8 @@ module.exports = {
 			});
 	},
 	find: (req,res,next) => {
-		Carpeta.find()
-			.select(exposedFields.join(' '))
+		Carpeta.find().sort('fecha')
+			.select(exposedFields.join(' ')).populate({path: 'sedes'})
 			.exec()
 			.then(docs => {
 				const response = {
