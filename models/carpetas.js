@@ -1,0 +1,36 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const carpetaSchema = new Schema({
+	name: {
+		type: String,
+		trim: true,
+		required: true,
+		match: [/^[a-zA-Z0-9]+$/, 'Sede invalida'],
+		index: true,
+		unique: true
+	},
+
+	description: {
+		type: String,
+		required: true
+	},
+
+	fecha: {
+		type: Date,
+		required: true
+	}
+
+	imagen: {
+		type: String
+	}
+
+	sedes: {
+		type: Schema.ObjectId,
+		ref: 'sedes'
+	}
+});
+
+const carpetaModel = mongoose.model('carpetas', carpetaSchema);
+
+module.exports = carpetaModel;
