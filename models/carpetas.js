@@ -29,7 +29,7 @@ const carpetaSchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'sedes'
 	}
-});
+}, {timestamps: true});
 
 const carpetaModel = mongoose.model('carpetas', carpetaSchema);
 

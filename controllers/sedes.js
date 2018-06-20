@@ -1,5 +1,5 @@
-/*const path = require('path');
-const fs = require('fs');*/
+const path = require('path');
+const fs = require('fs');
 
 const Sede = require('../models/sedes.js');
 const Carpeta = require('../models/carpetas');
@@ -133,5 +133,57 @@ module.exports = {
 					error: err
 				});
 			});
+	},
+
+	upload: (req,res,next) =>{
+		const sedeId = req.params.id;
+		const file_name = 'No sube..';
+		console.log(req.files);
+		if(req.files){
+			
+			const file_path = req.files.imagen.path;
+			const file_split = file_path.split('\\');
+			const file_name = file_split[2];
+
+			const ext_split = file_name.split('\.');
+			const file_ext = ext_split[1];
+
+			if(file_ext == 'png' || file_ext == 'jpg' || file_ext == 'gif'){
+				Sede.findByIdAndUpdate(sedeId, {imagen: file_name},(err, sedeUpdate) => {
+					if(!sedeUpdate){
+						res.status(404).json({
+							message: 'No se actualizo el usuario'
+						});
+					}else{
+						res.status(200).json({
+							sede: sedeUpdate
+						});
+					}
+				});
+			}else{
+				res.status(200).json({
+					message: 'La extencion del archivo no es valida'
+				});
+			}
+		}else{
+			res.status(200).json({
+				message: 'No se subio ninguna imagen'
+			});
+		}
+		
+	},
+
+	getImagen: (req,res,next) => {
+		const imageFile = req.params.imageFile;
+		const path_file = './uploads/sedes/'+imageFile;
+		fs.exists(path_file, (exists) => {
+			if(exists){
+				res.sendFile(path.resolve(path_file));
+			}else{
+				res.status(200).json({
+					message: 'No existe la imagen'
+				});
+			}
+		});
 	}
 }

@@ -2,7 +2,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({ extended : true}));
+app.use(bodyParser.urlencoded({
+limit: '50mb',
+parameterLimit: 100000,
+extended: true
+}));
+
 app.use(bodyParser.json());
 
 const port = process.env.PORT || 6060;
@@ -29,10 +34,12 @@ router.get('/', function(req, res){
 
 const userRouter = require('./routes/user');
 const sedeRouter = require('./routes/sedes');
+const carpetaRouter = require('./routes/carpetas');
 
 
 router.use('/user', userRouter);
 router.use('/sedes', sedeRouter);
+router.use('/carpetas', carpetaRouter);
 
 app.use('/api', router);
 
