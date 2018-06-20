@@ -12,4 +12,4 @@ mongoose.connect('mongodb://localhost:27017/Appfmcloud');
 mongoose.Promise = global.Promise;
 
 app.listen(port);
-console.log('Ingresa al puerto' + port);
+console.log('Ingresa al puerto ' + port);
