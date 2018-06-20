@@ -4,10 +4,7 @@ const Schema = mongoose.Schema;
 const sedeSchema = new Schema({
 	name: {
 		type: String,
-		trim: true,
 		required: true,
-		match: [/^[a-zA-Z0-9]+$/, 'Sede invalida'],
-		index: true,
 		unique: true
 	},
 
@@ -19,7 +16,7 @@ const sedeSchema = new Schema({
 	imagen: {
 		type: String
 	}
-});
+}, {timestamps: true});
 
 const sedeModel = mongoose.model('sedes', sedeSchema);
 

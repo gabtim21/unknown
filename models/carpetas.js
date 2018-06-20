@@ -19,11 +19,11 @@ const carpetaSchema = new Schema({
 	fecha: {
 		type: Date,
 		required: true
-	}
+	},
 
 	imagen: {
 		type: String
-	}
+	},
 
 	sedes: {
 		type: Schema.ObjectId,

@@ -14,15 +14,27 @@ app.use("/", function(req, res, next){
 	next();
 });
 
+app.options("/", function(req, res, next){
+	res.sendStatus(200);
+});
+
 const router = express.Router();
 
+router.get('/', function(req, res){
+	res.json({message: 'Welcome my friends :)'});	
+});
+
+
+
+
 const userRouter = require('./routes/user');
-const userSede = require('./routes/sedes');
+const sedeRouter = require('./routes/sedes');
 
 
 router.use('/user', userRouter);
-router.use('/user/sedes', userSede);
+router.use('/sedes', sedeRouter);
 
+app.use('/api', router);
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/Appfmcloud');
