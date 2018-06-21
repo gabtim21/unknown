@@ -5,7 +5,7 @@ const UserController = require('../controllers/user');
 const middleware = require('../middlewares/authorization');
 
 const multipart = require('connect-multiparty');
-const uploadImg = multipart({uploadDir: './uploads/sedes'});
+const uploadImg = multipart({uploadDir: './uploads/users'});
 
 router.post('/signup',UserController.signup);
 router.post('/signin',UserController.signin);
