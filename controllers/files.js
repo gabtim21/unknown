@@ -152,27 +152,27 @@ module.exports = {
 	},
 
 	upload: (req,res,next) =>{
-		const carpetaId = req.params.id;
+		const fileId = req.params.id;
 		const file_name = 'No sube..';
 		console.log(req.files);
 		if(req.files){
 			
-			const file_path = req.files.imagen.path;
+			const file_path = req.files.file.path;
 			const file_split = file_path.split('\\');
 			const file_name = file_split[2];
 
 			const ext_split = file_name.split('\.');
 			const file_ext = ext_split[1];
 
-			if(file_ext == 'png' || file_ext == 'jpg' || file_ext == 'gif'){
-				Carpeta.findByIdAndUpdate(carpetaId, {imagen: file_name},(err, carpetaUpdate) => {
-					if(!carpetaUpdate){
+			if(file_ext == 'doc' || file_ext == 'docx' || file_ext == 'pdf' || file_ext == 'xls' || file_ext == 'png' || file_ext == 'jpg'){
+				Archivo.findByIdAndUpdate(fileId, {file: file_name},(err, fileUpdate) => {
+					if(!fileUpdate){
 						res.status(404).json({
-							message: 'No se actualizo el usuario'
+							message: 'No se actualizo el archivo'
 						});
 					}else{
 						res.status(200).json({
-							carpeta: carpetaUpdate
+							file: fileUpdate
 						});
 					}
 				});
@@ -183,7 +183,7 @@ module.exports = {
 			}
 		}else{
 			res.status(200).json({
-				message: 'No se subio ninguna imagen'
+				message: 'No se subio el archivo'
 			});
 		}
 		
@@ -191,13 +191,13 @@ module.exports = {
 
 	getImagen: (req,res,next) => {
 		const imageFile = req.params.imageFile;
-		const path_file = './uploads/carpetas/'+imageFile;
+		const path_file = './uploads/files/'+imageFile;
 		fs.exists(path_file, (exists) => {
 			if(exists){
 				res.sendFile(path.resolve(path_file));
 			}else{
 				res.status(200).json({
-					message: 'No existe la imagen'
+					message: 'No existe el archivo'
 				});
 			}
 		});

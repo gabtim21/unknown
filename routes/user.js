@@ -1,19 +1,25 @@
 const express = require('express');
 const router = express.Router();
 
-const userController = require('../controllers/user');
+const UserController = require('../controllers/user');
 const middleware = require('../middlewares/authorization');
 
-router.post('/signup',userController.signup);
-router.post('/signin',userController.signin);
+const multipart = require('connect-multiparty');
+const uploadImg = multipart({uploadDir: './uploads/sedes'});
+
+router.post('/signup',UserController.signup);
+router.post('/signin',UserController.signin);
 router.post('/refresh',middleware.refreshToken);
 
 router.use(middleware.verifyToken);
 
-router.get('/',userController.find);
-router.get('/:id',userController.findOne);
-router.post('/',userController.create);
-//router.put('/:id',userController.update);
-//router.delete('/:id',userController.delete);
+router.get('/',UserController.find);
+router.get('/:id',UserController.findOne);
+router.post('/',UserController.create);
+router.put('/:id',UserController.update);
+router.delete('/:id',UserController.delete);
+router.post('/upload-img-user/:id',uploadImg, UserController.upload);
+router.get('/get-img-users/:imageFile', UserController.getImagen);
+
 
 module.exports = router;

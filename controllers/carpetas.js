@@ -9,8 +9,8 @@ const exposedFields = [
 	'name',
 	'description',
 	'fecha',
-	'sedes',
-	'imagen'
+	'imagen',
+	'sedes'
 ];
 
 /*function saveSede(req,res){

@@ -5,7 +5,7 @@ const SedeController = require('../controllers/sedes.js');
 const middleware = require('../middlewares/authorization');
 
 const multipart = require('connect-multiparty');
-const uploadImg = multipart({uploadDir: './uploads/sedes'})
+const uploadImg = multipart({uploadDir: './uploads/sedes'});
 
 router.post('/refresh',middleware.refreshToken);
 router.use(middleware.verifyToken);
