@@ -130,5 +130,41 @@ module.exports = {
 					error: err
 				});
 			});
+	},
+	update: (req,res,next) => {
+		const id = req.params.id;
+		let updateParams = {
+			...req.body
+		};
+		User.update({_id: id},{$set: updateParams})
+			.exec()
+			.then(result => {
+				res.status(200).json({
+					message: 'User updated!',
+					data: result['_doc']
+				});
+			})
+			.catch(err =>{
+				console.log(err);
+				res.status(500).json({
+					error:err
+				});
+			});
+	},
+	delete: (req,res,next) => {
+		const id = req.params.id;
+		User.remove({_id: id})
+			.exec()
+			.then(result => {
+				res.status(200).json({
+					message: 'User deleted!'
+				});
+			})
+			.catch(err =>{
+				console.log(err);
+				res.status(500).json({
+					error: err
+				});
+			});
 	}
 };
