@@ -1,6 +1,5 @@
-const utils = require('../lib/utils');
-
 const User = require('../models/user.js');
+const utils = require('../lib/utils.js');
 
 const exposedFields = [
 	'username',
@@ -9,7 +8,7 @@ const exposedFields = [
 ];
 
 module.exports = {
-	signup: (req,res,next) => {
+	signup: (req,res,next)=>{
 		var user = new User({
 			...req.body
 		});
@@ -19,19 +18,20 @@ module.exports = {
 				const token = utils.generateToken({
 					_id: result['_doc']['_id'],
 					name: result['_doc']['name'],
+					username: result['_doc']['username'],
 					email: result['_doc']['email']
 				});
 				const exposedData = utils.getCleanUser(result['_doc']);
 				res.status(200).json({
 					message: 'User succesfully signup!',
 					data: exposedData,
-					token: token 
+					token: token
 				});
 			})
 			.catch(err => {
 				console.log(err);
 				res.status(500).json({
-					error:err
+					error: err
 				});
 			});
 	},
@@ -66,22 +66,19 @@ module.exports = {
 					});
 			});
 	},
-	refreshToken: (req,res,next) => {
-		
+	refreshToken: (req,res,next)=>{
 		var token = req.body.token || req.query.token;
 		if (!token) {
-			return res.status(401).json({ message: 'Must pass token'});
+			return res.status(401).json({message: 'Must pass token'});
 		}
-
 		utils.verifyToken(token)
 			.then(user => {
-
 				User.findById({
 					'_id': user._id
-				}, function(err, user) {
+				},(err,user)=>{
 					if (err) throw err;
 
-					const exposedData = utils.getCleanUser(user['_doc']);
+					const exposeData = utils.getCleanUser(user['_doc']);
 					const newToken = utils.generateToken(exposedData);
 
 					res.status(200).json({
@@ -94,7 +91,7 @@ module.exports = {
 				res.status(500).json(err);
 			});
 	},
-	verifyToken: (req,res,next) => {
+	verifyToken: (req,res,next)=>{
 		const token = req.headers['authorization'];
 		if (!token) res.status(401).json({
 			error: true,
@@ -102,18 +99,38 @@ module.exports = {
 		});
 		utils.verifyToken(token)
 			.then(function(user){
-
 				req.user = user;
 				next();
 			})
 			.catch(function(err){
-				console.log(err)
+				console.log(err);
+				res.status(500).json({
+					error:err
+				});
+			});
+	},
+	create: (req,res,next)=>{
+		var user = new User({
+			...req.body
+		});
+		user
+			.save()
+			.then(result => {
+				res.status(200).json({
+					message: 'User succesfully created!',
+					data:{
+						...result['doc']
+					}
+				});
+			})
+			.catch(err => {
+				console.log(err);
 				res.status(500).json({
 					error: err
 				});
 			});
 	},
-	find: (req,res,next)=>{
+	find: (req,res,next) => {
 		User.find()
 			.select(exposedFields.join(' '))
 			.exec()
@@ -128,14 +145,14 @@ module.exports = {
 				};
 				res.status(200).json(response);
 			})
-			.catch(err =>{
+			.catch(err => {
 				console.log(err);
 				res.status(500).json({
 					error: err
 				});
 			});
 	},
-	findOne: (req,res,next)=>{
+	findOne: (req,res,next) => {
 		const id = req.params.id;
 		Plan.findById(id)
 			.exec()
@@ -144,7 +161,7 @@ module.exports = {
 					res.status(200).json({
 						data: doc['_doc'],
 					});
-				} else {
+				}else{
 					res.status(404).json({message: 'No valid entry found for provided ID'});
 				}
 			})
@@ -155,19 +172,33 @@ module.exports = {
 				});
 			});
 	},
-
-	create: (req,res,next) => {
-		var user = new User({
+	update: (req,res,next) => {
+		const id = req.params.id;
+		let updateParams = {
 			...req.body
-		});
-		user
-			.save()
+		};
+		User.update({_id: id},{$set: updateParams})
+			.exec()
 			.then(result => {
 				res.status(200).json({
-					message: 'Usuario Creado',
-					data: {
-						...result['_doc']
-					}
+					message: 'User updated!',
+					data: result['_doc']
+				});
+			})
+			.catch(err =>{
+				console.log(err);
+				res.status(500).json({
+					error:err
+				});
+			});
+	},
+	delete: (req,res,next) => {
+		const id = req.params.id;
+		User.remove({_id: id})
+			.exec()
+			.then(result => {
+				res.status(200).json({
+					message: 'User deleted!'
 				});
 			})
 			.catch(err =>{

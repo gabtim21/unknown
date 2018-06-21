@@ -44,11 +44,11 @@ const userSchema	= new Schema({
 	},
 	imagen: {
 		type 		:String
-	},
+	}/*
 	sede: {
 		type: Schema.ObjectId,
 		ref: 'sedes'
-	}
+	}*/
 }, {timestamps: true});
 
 userSchema.pre('save', function(next) {
