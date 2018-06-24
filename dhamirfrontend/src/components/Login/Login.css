@@ -1,0 +1,47 @@
+.Login{
+  padding-top: 60px;
+}
+
+.Login .Form{
+  margin-left: 30%;
+  margin-right: 30%;
+  border-radius: 20px;
+  border:1px solid black;
+  font-weight: bold;
+}
+
+.Login h1{
+  align-content: center;
+}
+
+.Login .Div{
+  display: block;
+  margin: 10px auto;
+}
+
+.Login input {
+	padding: 10px;
+	display: block;
+	width: 80%;
+	box-sizing: border-box;
+	border: 1px solid black;
+	outline: none;
+	font: inherit;
+	margin: auto;
+}
+
+.Login button {
+	margin: 5px 0;
+	padding: 10px;
+	font: inherit;
+	border: 1px solid #48BFB3;
+	color: white;
+	background-color: #48BFB3;
+	cursor:pointer;
+}
+
+.Login button:hover,
+.Login button:active{
+	background-color: transparent;
+	color: #48BFB3;
+}
