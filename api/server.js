@@ -19,7 +19,7 @@ app.use("/", function(req, res, next){
 	next();
 });
 
-app.options("/", function(req, res, next){
+app.options("/*", function(req, res, next){
 	res.sendStatus(200);
 });
 
@@ -28,9 +28,6 @@ const router = express.Router();
 router.get('/', function(req, res){
 	res.json({message: 'Welcome my friends :)'});	
 });
-
-
-
 
 const userRouter = require('./routes/user');
 const sedeRouter = require('./routes/sedes');
