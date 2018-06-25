@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import { Redirect } from 'react-router';
 
 import classes from './App.css';
 
@@ -17,6 +18,11 @@ class App extends Component {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/login' component={Login} />
+          <Route path='/logout' render={() => {
+            localStorage.removeItem('token');
+            localStorage.removeItem('name');
+            return (<Redirect to='/login' />)
+          }} />
           <Route path='/archivos' component={Archivos} />
           <Route render={() => <h1>Not found</h1>}/>
         </Switch>

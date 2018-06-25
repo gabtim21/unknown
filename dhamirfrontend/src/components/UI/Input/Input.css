@@ -2,10 +2,11 @@
 	width: 100%;
 	padding: 10px;
 	box-sizing: border-box;
+	font-weight: normal;
 }
 
 .Label {
-	font-weight: bold;
+	font-weight: normal;
 	display: block;
 	margin-bottom: 8px;
 }

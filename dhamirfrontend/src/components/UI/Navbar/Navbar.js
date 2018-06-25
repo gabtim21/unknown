@@ -3,14 +3,21 @@ import NavbarItem from './NavbarItem/NavbarItem';
 
 import classes from './Navbar.css';
 
-const navbar = () => (<header>
+const navbar = () => {
+    const isAuthenticated = localStorage.getItem('name');
+    return (<header>
     <nav className={classes.Navbar}>
         <ul className={classes.NavbarList}>
-            <NavbarItem
-                index={0}
-                to="/login"
-                exact
-                label="Iniciar Sesión" />
+            {!isAuthenticated?
+                <NavbarItem
+                    index={0}
+                    to="/login"
+                    label="Iniciar Sesión"/>
+                :<NavbarItem
+                    index={0}
+                    to="/logout"
+                    label="Cerrar sesión" />
+            }
             <NavbarItem
                 index={1}
                 to="/"
@@ -33,6 +40,7 @@ const navbar = () => (<header>
                 label="Carpetas" />
         </ul>
     </nav>
-</header>);
+</header>)
+};
 
 export default navbar;

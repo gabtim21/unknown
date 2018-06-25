@@ -1,29 +1,21 @@
-.Button {
-    background-color: transparent;
-    border: none;
-    color: white;
-    outline: none;
-    cursor: pointer;
-    font: inherit;
-    padding: 10px;
-    margin: 10px;
-    font-weight: bold;
+.Success{
+	background: transparent;
+	border: 2px solid black;
+	margin: 25px;
+	padding: 20px;
+	transition-duration: 0.3s;
 }
 
-.Button:first-of-type {
-    margin-left: 0;
-    padding-left: 0;
+.Success:hover{
+	background: black;
+	border-color:transparent;
+	color: white;
 }
 
-.Button:disabled {
-    color: #ccc;
-    cursor: not-allowed;
-}
-
-.Success {
-    color: #5C9210;
-}
-
-.Danger {
-    color: #944317;
+.SuccessDisabled{
+	background: transparent;
+	border: 2px solid grey;
+	margin: 25px;
+	padding: 20px;
+	transition-duration: 0.3s;	
 }
