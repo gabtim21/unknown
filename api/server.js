@@ -19,7 +19,7 @@ app.use("/", function(req, res, next){
 	next();
 });
 
-app.options("/", function(req, res, next){
+app.options("/*", function(req, res, next){
 	res.sendStatus(200);
 });
 
