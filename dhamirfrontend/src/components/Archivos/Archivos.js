@@ -1,32 +1,55 @@
-import React from 'react';
+import React,{Component} from 'react';
 import Archivo from './Archivo/Archivo';
+
+import axios from '../../shared/axios-fmcloud';
 
 import classes from './Archivos.css';
 
-const archivos = () => (
-    <div className={classes.Archivos}>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <td>Nombre</td>
-                    <td>Tipo</td>
-                    <td>Version</td>
-                    <td>Ult. modificacion</td>
-                    <td>Fecha</td>
-                    <td>Acciones</td>
-                </tr>
-            </thead>
-            <tbody>
-                <Archivo
-                    name="arch1"
-                    type="pdf"
-                    version="2"
-                    ultima_modif="pedro"
-                    fecha="8/8/8" />
-            </tbody>
-        </table>
-        </div>
-    </div>);
+import Table from '../UI/Table/Table';
 
-export default archivos;
+class Archivos extends Component{
+	state = {
+		data: null
+	}
+	componentDidMount(){
+		axios.get('files')
+			.then(response => {
+				console.log('mi data',response.data.data)
+				this.setState({
+					data: response.data.data
+				});
+			})
+			.catch(err => {
+				alert('no funciona')
+			})
+	}
+	render(){
+		const headers = [
+			'Nombre',
+			'Tipo',
+			'Version',
+			'Ult. modificacion',
+			'Fecha',
+			'Acciones'
+		];
+
+		let rows = null;
+		if(this.state.data!==null)
+			rows = this.state.data.map(item => (<Archivo
+												key={item._id}
+												name={item.name}
+										        type={item.tipo}
+										        version={item.version}
+										        ultima_modif={item.ultima_modif}
+										        fecha={item.fecha}/>));
+		return (<div className={classes.Archivos}>
+	    	<div>
+		    	<Table 
+		    		headers={headers}
+		    		rows={rows} />
+	        </div>
+	    </div>);
+	}
+}
+
+export default Archivos;
