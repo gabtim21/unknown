@@ -29,9 +29,6 @@ router.get('/', function(req, res){
 	res.json({message: 'Welcome my friends :)'});	
 });
 
-
-
-
 const userRouter = require('./routes/user');
 const sedeRouter = require('./routes/sedes');
 const carpetaRouter = require('./routes/carpetas');

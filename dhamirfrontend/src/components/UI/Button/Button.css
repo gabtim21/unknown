@@ -1,3 +1,18 @@
+.Edit{
+	background-color: #48BFB3;
+	border: 1px solid #48BFB3;
+}
+
+.Desc{
+	background-color: #f0b81f;
+	border: 1px solid #f0b81f;
+}
+
+.Elim{
+	background-color: #81aaa4;
+	border: 1px solid #81aaa4;
+}
+
 .Success{
 	background: transparent;
 	border: 2px solid black;

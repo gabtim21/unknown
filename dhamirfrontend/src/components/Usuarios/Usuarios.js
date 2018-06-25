@@ -1,18 +1,18 @@
 import React,{Component} from 'react';
-import Archivo from '../Archivo/Archivo';
+import Usuario from '../Usuario/Usuario';
 
 import axios from '../../shared/axios-fmcloud';
 
-import classes from './Archivos.css';
+import classes from '../Archivos/Archivos.css';
 
 import Table from '../UI/Table/Table';
 
-class Archivos extends Component{
+class Usuarios extends Component{
 	state = {
 		data: null
 	}
 	componentDidMount(){
-		axios.get('files')
+		axios.get('user')
 			.then(response => {
 				console.log('mi data',response.data.data)
 				this.setState({
@@ -26,22 +26,20 @@ class Archivos extends Component{
 	render(){
 		const headers = [
 			'Nombre',
-			'Tipo',
-			'Version',
-			'Ult. modificacion',
-			'Fecha',
+			'DNI',
+			'Celular',
+			'Email',
 			'Acciones'
 		];
 
 		let rows = null;
 		if(this.state.data!==null)
-			rows = this.state.data.map(item => (<Archivo
+			rows = this.state.data.map(item => (<Usuario
 												key={item._id}
 												name={item.name}
-										        type={item.tipo}
-										        version={item.version}
-										        ultima_modif={item.ultima_modif}
-										        fecha={item.fecha}/>));
+												dni={item.dni}
+												cel={item.cel}
+												email={item.email}/>));
 		return (<div className={classes.Archivos}>
 	    	<div>
 		    	<Table 
@@ -52,4 +50,4 @@ class Archivos extends Component{
 	}
 }
 
-export default Archivos;
+export default Usuarios;

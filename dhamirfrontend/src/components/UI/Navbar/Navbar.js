@@ -38,6 +38,11 @@ const navbar = () => {
                 to="/carpetas"
                 exact
                 label="Carpetas" />
+            <NavbarItem
+                index={5}
+                to="/usuarios"
+                exact
+                label="Usuarios" />
         </ul>
     </nav>
 </header>)
