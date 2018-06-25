@@ -1,15 +1,14 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
-import classes from '../Archivos.css';
+import classes from '../Archivos/Archivos.css';
 
-const archivo = (props) => 
+const usuario = (props) => 
 (<tr>
 	<td>{props.name}</td>
-	<td>{props.type}</td>
-	<td>{props.version}</td>
-	<td>{props.ultima_modif}</td>
-	<td>{props.fecha}</td>
+	<td>{props.dni}</td>
+	<td>{props.cel}</td>
+	<td>{props.email}</td>
 	<td>
 		<button className={classes.Edit} onClick='/:id'>Editar</button>
 		<button className={classes.Desc} onClick='/:id'>Descargar</button>
@@ -17,4 +16,4 @@ const archivo = (props) =>
 	</td>
 </tr>);
 
-export default archivo;
+export default usuario;

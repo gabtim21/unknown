@@ -9,6 +9,7 @@ import Navbar from './components/UI/Navbar/Navbar';
 import Login from './components/Login/Login';
 import Archivos from './components/Archivos/Archivos';
 import Carpetas from './components/Carpetas/Carpetas';
+import Usuarios from './components/Usuarios/Usuarios';
 
 class App extends Component {
   render(){
@@ -26,6 +27,7 @@ class App extends Component {
           }} />
           <Route path='/archivos' component={Archivos} />
           <Route path='/carpetas' component={Carpetas} />
+          <Route path='/usuarios' component={Usuarios} />
           <Route render={() => <h1>Not found</h1>}/>
         </Switch>
       </div>

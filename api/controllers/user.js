@@ -2,7 +2,6 @@ const User = require('../models/user.js');
 const utils = require('../lib/utils.js');
 
 const exposedFields = [
-	
 	'name',
 	'email',
 	'imagen',

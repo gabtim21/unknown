@@ -15,7 +15,6 @@ module.exports = {
 		});
 	},
 	verifyToken: token => {
-		console.log(secret);
 		return new Promise((resolve,reject) => {
 			jwt.verify(token, secret, (err,user)=> {
 				if (err) {
