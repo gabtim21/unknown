@@ -34,7 +34,7 @@ const exposedFields = [
 			}
 		}
 	});
-	
+
 
 }*/
 
@@ -86,7 +86,7 @@ module.exports = {
 				res.status(500).json({
 					error: err
 				});
-			});	
+			});
 	},
 	findOne: (req, res, next) => {
 		const id = req.params.id;
@@ -153,10 +153,10 @@ module.exports = {
 
 	upload: (req,res,next) =>{
 		const fileId = req.params.id;
-		const file_name = 'No sube..';
+
 		console.log(req.files);
 		if(req.files){
-			
+
 			const file_path = req.files.file.path;
 			const file_split = file_path.split('\\');
 			const file_name = file_split[2];
@@ -186,7 +186,7 @@ module.exports = {
 				message: 'No se subio el archivo'
 			});
 		}
-		
+
 	},
 
 	getImagen: (req,res,next) => {
