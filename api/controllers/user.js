@@ -21,7 +21,7 @@ module.exports = {
 				const token = utils.generateToken({
 					_id: result['_doc']['_id'],
 					name: result['_doc']['name'],
-					username: result['_doc']['username'],
+					password: result['_doc']['password'],
 					email: result['_doc']['email']
 				});
 				const exposedData = utils.getCleanUser(result['_doc']);

@@ -1,0 +1,46 @@
+.Home {
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -1;
+  opacity: 0.4;
+  background-size: cover;
+  position: absolute;
+
+}
+.slider{
+	 width: 100%;
+	 height: 100%;
+	 margin: 0em;
+	 overflow: hidden;
+
+	
+}
+.slider ul {
+	display: flex;
+	padding-left: 0px;
+	width: 200%;
+		margin: 0em;
+
+	animation: cambio 15s infinite alternate linear;
+}
+
+.slider li {
+	width: 100%;
+	list-style: none;
+
+}
+
+.slider img {
+	width: 100%;
+	height: 100%;
+}
+
+@keyframes cambio {
+	0% {margin-left: 0em;}
+	50% {margin-left: 0em;}
+	
+	75% {margin-left: -100%;}
+	100% {margin-left: -100%;}
+}
+

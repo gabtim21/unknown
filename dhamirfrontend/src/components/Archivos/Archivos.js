@@ -44,6 +44,7 @@ class Archivos extends Component{
 										        fecha={item.fecha}/>));
 		return (<div className={classes.Archivos}>
 	    	<div>
+	    		
 		    	<Table 
 		    		headers={headers}
 		    		rows={rows} />

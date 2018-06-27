@@ -1,5 +1,8 @@
 .Navbar {
 	background-color:  #F5F7F6;
+    position: fixed;
+    width: 100%;
+
 }
 
 .NavbarList {
@@ -7,7 +10,8 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #F5F7F6;
+    background-color: #373938;
+
 }
 
 .NavbarItem {
@@ -16,7 +20,7 @@
 
 .NavbarItem a {
     display: block;
-    color: black;
+    color: white;
     font-weight: bold;
     text-align: center;
     padding: 14px 16px;

@@ -25,7 +25,7 @@ module.exports = {
 		});
 	},
 	getCleanUser: user => {
-		const { password, age, createdAt, updatedAt, __v, ...exposedData } = user;
+		const { age, createdAt, updatedAt, __v, ...exposedData } = user;
 		return exposedData;
 	}
 }
