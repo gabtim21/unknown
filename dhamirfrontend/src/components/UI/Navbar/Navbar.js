@@ -25,21 +25,16 @@ const navbar = () => {
                 label="Home" />
             <NavbarItem
                 index={2}
-                to="/signup"
-                exact
-                label="Registrate" />
-            <NavbarItem
-                index={3}
                 to="/archivos"
                 exact
                 label="Archivos" />
             <NavbarItem
-                index={4}
+                index={3}
                 to="/carpetas"
                 exact
                 label="Carpetas" />
             <NavbarItem
-                index={5}
+                index={4}
                 to="/usuarios"
                 exact
                 label="Usuarios" />

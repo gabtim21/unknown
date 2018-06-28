@@ -10,6 +10,8 @@ import Login from './components/Login/Login';
 import Archivos from './components/Archivos/Archivos';
 import Carpetas from './components/Carpetas/Carpetas';
 import Usuarios from './components/Usuarios/Usuarios';
+import FormularioUsuario from './components/FormularioUsuario/FormularioUsuario';
+import FormularioArchivo from './components/FormularioArchivo/FormularioArchivo';
 
 class App extends Component {
   render(){
@@ -28,6 +30,8 @@ class App extends Component {
           <Route path='/archivos' component={Archivos} />
           <Route path='/carpetas' component={Carpetas} />
           <Route path='/usuarios' component={Usuarios} />
+          <Route path='/usuarios-ingresar' component={FormularioUsuario} />
+          <Route path='/archivos-ingresar' component={FormularioArchivo} />
           <Route render={() => <h1>Not found</h1>}/>
         </Switch>
       </div>

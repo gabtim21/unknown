@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import { Link } from 'react-router-dom';
 import Usuario from '../Usuario/Usuario';
 
 import axios from '../../shared/axios-fmcloud';
@@ -42,6 +43,7 @@ class Usuarios extends Component{
 												email={item.email}/>));
 		return (<div className={classes.Archivos}>
 	    	<div>
+	    	<Link to="/usuarios-ingresar"><button className={classes.Add}>Ingresar usuario</button></Link>
 		    	<Table 
 		    		headers={headers}
 		    		rows={rows} />

@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import { Link } from 'react-router-dom';
 import Archivo from '../Archivo/Archivo';
 
 import axios from '../../shared/axios-fmcloud';
@@ -44,7 +45,7 @@ class Archivos extends Component{
 										        fecha={item.fecha}/>));
 		return (<div className={classes.Archivos}>
 	    	<div>
-	    		
+	    	<Link to="/archivos-ingresar"><button className={classes.Add}>Ingresar archivo</button></Link>
 		    	<Table 
 		    		headers={headers}
 		    		rows={rows} />

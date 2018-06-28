@@ -37,6 +37,23 @@
 	cursor:pointer;
 }
 
+.Add {
+	float: left;
+	margin: 15px ;
+	padding: 10px;
+	font: inherit;
+	border: 1px solid #48BFB3;
+	color: white;
+	background-color: #48BFB3;
+	cursor:pointer;
+}
+
+.Add:hover,
+.Add:active{
+	background-color: transparent;
+	color: #48BFB3;
+}
+
 .Archivos .Edit{
 	background-color: #48BFB3;
 	border: 1px solid #48BFB3;
