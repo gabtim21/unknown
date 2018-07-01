@@ -1,20 +1,37 @@
-import React from 'react';
-import {NavLink} from 'react-router-dom';
+import React, { Component } from 'react';
+
+import axios from '../../shared/axios-fmcloud';
 
 import classes from '../Archivos/Archivos.css';
 
-const archivo = (props) => 
-(<tr>
-	<td>{props.name}</td>
-	<td>{props.type}</td>
-	<td>{props.version}</td>
-	<td>{props.ultima_modif}</td>
-	<td>{props.fecha}</td>
-	<td>
-		<button className={classes.Edit} onClick='/:id'>Editar</button>
-		<button className={classes.Desc} onClick='/:id'>Descargar</button>
-		<button className={classes.Elim} onClick='/:id'>Eliminar</button>
-	</td>
-</tr>);
 
-export default archivo;
+class Archivo extends Component{
+
+	eliminarHandler = () => {
+		axios.delete('files/'+this.props._id+'')
+			.then(response => {
+				alert('se elimino correctamente')
+			})
+			.catch(err => {
+				alert('no funciona: user/'+this.props.key+'')
+			})
+	}
+
+	render(){
+		return (
+			<tr>
+				<td>{this.props.name}</td>
+				<td>{this.props.type}</td>
+				<td>{this.props.version}</td>
+				<td>{this.props.ultima_modif}</td>
+				<td>{this.props.fecha}</td>
+				<td>
+					<button className={classes.Edit} onClick='/:id'>Editar</button>
+					<button className={classes.Desc} onClick='/:id'>Descargar</button>
+					<button className={classes.Elim} onClick={this.eliminarHandler}>Eliminar</button>
+				</td>
+			</tr>);
+	}
+}
+
+export default Archivo;

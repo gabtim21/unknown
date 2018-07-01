@@ -37,6 +37,7 @@ class Usuarios extends Component{
 		if(this.state.data!==null)
 			rows = this.state.data.map(item => (<Usuario
 												key={item._id}
+												_id={item._id}
 												name={item.name}
 												dni={item.dni}
 												cel={item.cel}

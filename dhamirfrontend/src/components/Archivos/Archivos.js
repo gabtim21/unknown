@@ -38,6 +38,7 @@ class Archivos extends Component{
 		if(this.state.data!==null)
 			rows = this.state.data.map(item => (<Archivo
 												key={item._id}
+												_id={item._id}
 												name={item.name}
 										        type={item.tipo}
 										        version={item.version}

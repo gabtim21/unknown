@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 
 import axios from '../../shared/axios-fmcloud';
 
-import Button from '../UI/Button/Button';
 import Spinner from '../UI/Spinner/Spinner';
 import Input from '../UI/Input/Input';
 import Classes from '../Login/Login.css';
