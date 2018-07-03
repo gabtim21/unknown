@@ -12,7 +12,7 @@ router.use(middleware.verifyToken);
 
 router.get('/', SedeController.find);
 router.get('/:id', SedeController.findOne);
-router.post('/', SedeController.create);
+router.post('/', uploadImg,SedeController.create);
 //router.post('/sede', SedeController.saveSede);
 router.put('/:id', SedeController.update);
 router.delete('/:id', SedeController.delete);

@@ -12,7 +12,7 @@ router.use(middleware.verifyToken);
 
 router.get('/', CarpetaController.find);
 router.get('/:id', CarpetaController.findOne);
-router.post('/', CarpetaController.create);
+router.post('/', uploadImg, CarpetaController.create);
 //router.post('/sede', SedeController.saveSede);
 router.put('/:id', CarpetaController.update);
 router.delete('/:id', CarpetaController.delete);

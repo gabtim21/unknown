@@ -36,9 +36,12 @@ const exposedFields = [
 
 module.exports = {
 	create : (req,res,next) => {
-		var sede = new Sede({
-			...req.body
-		});
+		const data = {
+			...req.body, 
+			imagen: req.files.image.path
+		}
+		console.log('mi data',data)
+		var sede = new Sede(data);
 		sede
 			.save()
 			.then(result => {
@@ -69,6 +72,7 @@ module.exports = {
 						};
 					})
 				};
+				console.log('mi data', response);
 				res.status(200).json(response);
 			})
 			.catch(err => {

@@ -40,9 +40,13 @@ const exposedFields = [
 
 module.exports = {
 	create : (req,res,next) => {
-		var archivo = new Archivo({
-			...req.body
-		});
+		console.log('otro',req.file)
+		const data = {
+			...req.body, 
+			file: req.files.file.path
+		}
+		console.log('mi data',data)
+		var archivo = new Archivo(data);
 		archivo
 			.save()
 			.then(result => {

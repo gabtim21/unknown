@@ -54,7 +54,7 @@ class FormularioArchivo extends Component{
 			file:{
 				elementType: 'input',
 				elementConfig: {
-					type: 'text',
+					type: 'file',
 					placeHolder: 'Ingresa el archivo'
 				},
 				value: '',
@@ -67,7 +67,7 @@ class FormularioArchivo extends Component{
 			ultima_modif:{
 				elementType: 'input',
 				elementConfig: {
-					type: 'text',
+					type: 'date',
 					placeHolder: 'Ultima modificacion'
 				},
 				value: '',
@@ -85,13 +85,15 @@ class FormularioArchivo extends Component{
 	}
 
 	submitHandler = ( event ) => {
+		console.log('entra aca')
 		event.preventDefault();
-		const formData = {};
+		const formData = new FormData();
 		for (let formElementIdentifier in this.state.archivoForm){
-			formData[formElementIdentifier] = this.state.archivoForm[formElementIdentifier].value;
+			formData.append(formElementIdentifier,this.state.archivoForm[formElementIdentifier].value);
 		}
+		console.log(formData);
 		this.setState({loading: true, error: false});
-		axios.post('file/upload-img-files', formData)
+		axios.post('files', formData)
 			.then( response => {
 				this.setState({
 					loading: false,
@@ -109,7 +111,7 @@ class FormularioArchivo extends Component{
 
 	inputChangeHandler = (event, inputIdentifier) => {
 		const updatedFormElement = updateObject(this.state.archivoForm[inputIdentifier], {
-			value: event.target.value,
+			value: inputIdentifier=='file'?event.target.files[0]:event.target.value,
 			valid: checkValidity(event.target.value, this.state.archivoForm[inputIdentifier].validation),
 			touched: true
 		});

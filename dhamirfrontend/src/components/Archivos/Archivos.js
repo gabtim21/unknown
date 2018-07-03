@@ -13,6 +13,9 @@ class Archivos extends Component{
 		data: null
 	}
 	componentDidMount(){
+		this.cargarData()
+	}
+	cargarData = () => {
 		axios.get('files')
 			.then(response => {
 				console.log('mi data',response.data.data)
@@ -43,7 +46,9 @@ class Archivos extends Component{
 										        type={item.tipo}
 										        version={item.version}
 										        ultima_modif={item.ultima_modif}
-										        fecha={item.fecha}/>));
+										        fecha={item.fecha}
+												recargar={this.cargarData}/>));
+										        
 		return (<div className={classes.Archivos}>
 	    	<div>
 	    	<Link to="/archivos-ingresar"><button className={classes.Add}>Ingresar archivo</button></Link>

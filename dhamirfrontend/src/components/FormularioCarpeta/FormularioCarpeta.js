@@ -5,18 +5,18 @@ import axios from '../../shared/axios-fmcloud';
 
 import Spinner from '../UI/Spinner/Spinner';
 import Input from '../UI/Input/Input';
-import Classes from '../Login/Login.css';	
+import Classes from '../Login/Login.css';
 
 import {updateObject, checkValidity} from '../../shared/utility';
 
-class FormularioUsuario extends Component{
+class FormularioCarpeta extends Component{
 	state = {
-		loginForm: {
+		carpetaForm: {
 			name: {
 				elementType: 'input',
 				elementConfig: {
 					type: 'text',
-					placeHolder: 'Nombres Completos'
+					placeHolder: 'Nombre'
 				},
 				value: '',
 				validation: {
@@ -25,11 +25,11 @@ class FormularioUsuario extends Component{
 				valid: false,
 				touched: false
 			},
-			dni: {
+			description: {
 				elementType: 'input',
 				elementConfig: {
 					type: 'text',
-					placeHolder: 'DNI'
+					placeHolder: 'Descripcion'
 				},
 				value: '',
 				validation: {
@@ -38,11 +38,11 @@ class FormularioUsuario extends Component{
 				valid: false,
 				touched: false
 			},
-			cel: {
+			fecha: {
 				elementType: 'input',
 				elementConfig: {
-					type: 'number',
-					placeHolder: 'Telefono / Celular'
+					type: 'date',
+					placeHolder: 'Fecha'
 				},
 				value: '',
 				validation: {
@@ -51,51 +51,24 @@ class FormularioUsuario extends Component{
 				valid: false,
 				touched: false
 			},
-			tipo_user: {
+			image: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'file',
+					placeHolder: 'Imagen sede'
+				},
+				value: '',
+				validation: {
+					required: true
+				},
+				valid: false,
+				touched: false
+			},
+			sedes: {
 				elementType: 'input',
 				elementConfig: {
 					type: 'text',
-					placeHolder: 'Tipo de Usuario'
-				},
-				value: '',
-				validation: {
-					required: true
-				},
-				valid: false,
-				touched: false
-			},
-			email: {
-				elementType: 'input',
-				elementConfig: {
-					type: 'email',
-					placeHolder: 'Email'
-				},
-				value: '',
-				validation: {
-					required: true
-				},
-				valid: false,
-				touched: false
-			},
-			password: {
-				elementType: 'input',
-				elementConfig: {
-					type: 'password',
-					placeHolder: 'Password'
-				},
-				value: '',
-				validation: {
-					required: true,
-					minLength: 6
-				},
-				valid: false,
-				touched: false
-			},
-			imagen: {
-				elementType: 'input',
-				elementConfig: {
-					type: 'text',
-					placeHolder: 'Ingrese un archivo'
+					placeHolder: 'Sede ObjectID'
 				},
 				value: '',
 				validation: {
@@ -113,12 +86,12 @@ class FormularioUsuario extends Component{
 
 	submitHandler = ( event ) => {
 		event.preventDefault();
-		const formData = {};
-		for (let formElementIdentifier in this.state.loginForm){
-			formData[formElementIdentifier] = this.state.loginForm[formElementIdentifier].value;
+		const formData = new FormData();
+		for (let formElementIdentifier in this.state.carpetaForm){
+			formData.append(formElementIdentifier,this.state.carpetaForm[formElementIdentifier].value);
 		}
 		this.setState({loading: true, error: false});
-		axios.post('user/signup', formData)
+		axios.post('carpetas', formData)
 			.then( response => {
 				this.setState({
 					loading: false,
@@ -135,12 +108,12 @@ class FormularioUsuario extends Component{
 	}
 
 	inputChangeHandler = (event, inputIdentifier) => {
-		const updatedFormElement = updateObject(this.state.loginForm[inputIdentifier], {
-			value: event.target.value,
-			valid: checkValidity(event.target.value, this.state.loginForm[inputIdentifier].validation),
+		const updatedFormElement = updateObject(this.state.carpetaForm[inputIdentifier], {
+			value: inputIdentifier=='image'?event.target.files[0]:event.target.value,
+			valid: checkValidity(event.target.value, this.state.carpetaForm[inputIdentifier].validation),
 			touched: true
 		});
-		const updatedloginForm = updateObject(this.state.loginForm,{
+		const updatedloginForm = updateObject(this.state.carpetaForm,{
 			[inputIdentifier]: updatedFormElement
 		});
 
@@ -148,21 +121,21 @@ class FormularioUsuario extends Component{
 		for (let inputIdentifier in updatedloginForm) {
 			formIsValid = updatedloginForm[inputIdentifier].valid && formIsValid;
 		}
-		this.setState({loginForm: updatedloginForm, formIsValid: formIsValid});
+		this.setState({carpetaForm: updatedloginForm, formIsValid: formIsValid});
 	}
 
 	render(){
 		const formElementsArray = [];
-		for (let key in this.state.loginForm){
+		for (let key in this.state.carpetaForm){
 			formElementsArray.push({
 				id: key,
-				config: this.state.loginForm[key]
+				config: this.state.carpetaForm[key]
 			});
 		}
 		let form = (
 			<div className={Classes.Login}>
 			<form className={Classes.Form} onSubmit={this.submitHandler}>
-			<h4>Ingresa los datos pedidos y agrega un nuevo usuario</h4>
+			<h4>Ingresa los datos pedidos</h4>
 				{formElementsArray.map(formElement => (
 					<div className={Classes.Div}>
 					<Input
@@ -175,7 +148,7 @@ class FormularioUsuario extends Component{
 						touched={formElement.config.touched}
 						changed={(event) => this.inputChangeHandler(event, formElement.id)} />
 					</div>))}
-				<button className={Classes.Login} disabled={!this.state.formIsValid}>Crear usuario</button>
+				<button className={Classes.Login} disabled={!this.state.formIsValid}>Crear carpeta</button>
 			</form>
 			</div>
 			);
@@ -192,7 +165,7 @@ class FormularioUsuario extends Component{
 		}
 		let authRedirect = null;
 		if ( this.state.isAuthenticated ){
-			authRedirect = (<Redirect to={'/usuarios'} />);
+			authRedirect = (<Redirect to={'/carpetas'} />);
 		}
 		return (
 			<div>
@@ -204,4 +177,4 @@ class FormularioUsuario extends Component{
 	}
 }
 
-export default FormularioUsuario;
+export default FormularioCarpeta;

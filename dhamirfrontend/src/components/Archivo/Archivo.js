@@ -11,6 +11,7 @@ class Archivo extends Component{
 		axios.delete('files/'+this.props._id+'')
 			.then(response => {
 				alert('se elimino correctamente')
+				this.props.recargar()
 			})
 			.catch(err => {
 				alert('no funciona: user/'+this.props.key+'')

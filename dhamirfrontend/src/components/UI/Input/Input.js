@@ -15,7 +15,7 @@ const input = ( props ) => {
 			inputElement = <input
 				className={inputClasses.join(' ')}
 				{...props.elementConfig}
-				value={props.value}
+				value={props.elementConfig.type==="file"?null:props.value}
 				onChange={props.changed} />;
 			break;
 		case ('textarea'):

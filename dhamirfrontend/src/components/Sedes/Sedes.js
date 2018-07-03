@@ -1,14 +1,13 @@
 import React,{Component} from 'react';
 import { Link } from 'react-router-dom';
-import Usuario from '../Usuario/Usuario';
+import Sede from '../Sede/Sede';
 
 import axios from '../../shared/axios-fmcloud';
 
 import classes from '../Archivos/Archivos.css';
 
-import Table from '../UI/Table/Table';
 
-class Usuarios extends Component{
+class Sedes extends Component{
 	state = {
 		data: null
 	}
@@ -16,7 +15,7 @@ class Usuarios extends Component{
 		this.cargarData()
 	}
 	cargarData = () => {
-		axios.get('user')
+		axios.get('sedes')
 			.then(response => {
 				console.log('mi data',response.data.data)
 				this.setState({
@@ -28,34 +27,22 @@ class Usuarios extends Component{
 			})
 	}
 	render(){
-		const headers = [
-			'Nombre',
-			'DNI',
-			'Celular',
-			'Email',
-			'Acciones'
-		];
-
 		let rows = null;
 		if(this.state.data!==null)
-			rows = this.state.data.map(item => (<Usuario
+			rows = this.state.data.map(item => (<Sede
 												key={item._id}
 												_id={item._id}
+												imagen={item.imagen}
 												name={item.name}
-												dni={item.dni}
-												cel={item.cel}
-												email={item.email}
+												description={item.description}
 												recargar={this.cargarData}/>));
-
 		return (<div className={classes.Archivos}>
-	    	<div>
-	    	<Link to="/usuarios-ingresar"><button className={classes.Add}>Ingresar usuario</button></Link>
-		    	<Table 
-		    		headers={headers}
-		    		rows={rows} />
-	        </div>
+	    	<div className={classes.content_box}>
+    		<Link to="/sedes-ingresar"><button className={classes.Add}>Crear nueva sede</button></Link>
+	    		{rows}
+        	</div>
 	    </div>);
 	}
 }
 
-export default Usuarios;
+export default Sedes;

@@ -38,9 +38,12 @@ const exposedFields = [
 
 module.exports = {
 	create : (req,res,next) => {
-		var carpeta = new Carpeta({
-			...req.body
-		});
+		const data = {
+			...req.body, 
+			imagen: req.files.image.path
+		}
+		console.log('mi data',data)
+		var carpeta = new Carpeta(data);
 		carpeta
 			.save()
 			.then(result => {
