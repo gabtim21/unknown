@@ -40,7 +40,6 @@ module.exports = {
 	create : (req,res,next) => {
 		const data = {
 			...req.body, 
-			imagen: req.files.image.path
 		}
 		console.log('mi data',data)
 		var carpeta = new Carpeta(data);
