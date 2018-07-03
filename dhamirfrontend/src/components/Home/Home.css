@@ -2,10 +2,15 @@
   width: 100%;
   height: 100%;
   display: block;
-  z-index: -1;
-  opacity: 0.4;
   background-size: cover;
   position: absolute;
+  background: url('../../assets/constructora.jpg');
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
 }
 .slider{
@@ -44,3 +49,45 @@
 	100% {margin-left: -100%;}
 }
 
+.title {
+	font-family: 'Lobster', cursive;
+	font-size: 40px;
+	color: #fff;
+	border: 2px solid #fff;
+	padding: 20px;
+	text-align: center;
+	background: #333;
+}
+
+.content {
+	margin-left: 30%;
+	margin-right: 30%;
+	font-family: 'Lobster', cursive;
+	font-size: 20px;
+	color: #fff;
+	border: 2px solid #fff;
+	padding: 20px;
+	text-align: center;
+	background: #DFE368;
+}
+.boton {
+	width: 200px;
+	height: 60px;
+	border-radius: 15px;
+	border-style: solid;
+	border-color: #E0E724;
+	color:#E0E724;
+	background: transparent;
+	border-width: 3px;
+	text-align: center;
+	margin: 25px;
+	transition-duration: 0.8s;
+	font-size: 20px;
+	font-family: "Cooper black", Cooper, serif;
+}
+
+.boton:hover {
+	background-color: #FFBF00;
+	border-color: #FFBF00;
+	color:white;
+}

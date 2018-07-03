@@ -1,3 +1,30 @@
+.Sedes {
+	padding-top: 60px;
+
+}
+
+.Sedes div {
+	padding: 20px;
+	margin-left: 10%;
+	margin-right: 10%;
+	border-radius: 20px;
+	border:1px solid black;
+	      font-weight: bolder;
+
+	
+}
+.Sedes .col3 {
+	position: relative;
+  	width: 100%;
+  	min-height: 1px;
+  	padding-right: 15px;
+  	padding-left: 15px;
+}
+
+.Sedes table {
+	width: 100%;
+}
+
 .item{
   width:200px;
   text-align:center;
@@ -12,6 +39,7 @@
 .content_box {
     border: 1px solid #D6CBCB;
     padding-bottom: 10px;
+    background-color: #BCF5FA;
 }
 
 * {
@@ -31,6 +59,21 @@
     text-align: center;
 }
 
+.DetalleSede{
+	color: #000;
+	background: #fff;
+	border:1% solid #fff;
+	border-radius: 20px;
+	transition-duration: 0.4s;
+	padding: 10px;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+ a{
+    text-decoration: none;
+
+}
 
 button {
 	margin: 5px 0;
@@ -45,7 +88,7 @@ button {
 	margin: 15px ;
 	padding: 10px;
 	font: inherit;
-	border: 1px solid #48BFB3;
+	border: 1px solid #fff;
 	color: white;
 	background-color: #48BFB3;
 	cursor:pointer;
@@ -70,4 +113,10 @@ button {
 .Elim{
 	background-color: red;
 	border: 1px solid #81aaa4;
+}
+.Imagen{
+	border-radius: 20px;
+	width: 50px;
+	height: 50px;
+
 }

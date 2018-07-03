@@ -4,7 +4,7 @@ import Sede from '../Sede/Sede';
 
 import axios from '../../shared/axios-fmcloud';
 
-import classes from '../Archivos/Archivos.css';
+import classes from '../Sede/Sede.css';
 
 
 class Sedes extends Component{
@@ -36,7 +36,7 @@ class Sedes extends Component{
 												name={item.name}
 												description={item.description}
 												recargar={this.cargarData}/>));
-		return (<div className={classes.Archivos}>
+		return (<div className={classes.Sedes}>
 	    	<div className={classes.content_box}>
     		<Link to="/sedes-ingresar"><button className={classes.Add}>Crear nueva sede</button></Link>
 	    		{rows}

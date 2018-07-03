@@ -25,6 +25,9 @@ app.options("/*", function(req, res, next){
 
 const router = express.Router();
 
+app.use('/uploads',express.static('uploads'));
+
+
 router.get('/', function(req, res){
 	res.json({message: 'Welcome my friends :)'});	
 });

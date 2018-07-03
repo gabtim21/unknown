@@ -25,10 +25,11 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    text-transform: uppercase;
 }
 
 .NavbarItem a:hover {
-    color:  #373938;
+    color:  #03565C;
 }
 
 .NavbarItem a.active {
