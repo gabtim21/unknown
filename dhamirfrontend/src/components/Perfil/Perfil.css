@@ -1,0 +1,29 @@
+.Perfil {
+	margin: 25px;
+	padding: 25px;
+}
+.Perfil td{
+	float: left;
+}
+.Imagen{
+	width: 400px;
+}
+
+.Imagen img{
+	margin: 50px;
+	width: 300px;
+    height: auto;
+    align-content: center;
+    border: 2px solid #f2f2f2;
+    border-radius: 50%;
+    transition-duration: 0.4s;
+}
+
+.Imagen img:hover{
+    border-radius: 15%;
+}
+
+.Info{
+	padding: 30px;
+	width: 300px;
+}
