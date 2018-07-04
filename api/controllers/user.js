@@ -1,3 +1,6 @@
+const path = require('path');
+const fs = require('fs');
+
 const User = require('../models/user.js');
 const utils = require('../lib/utils.js');
 
@@ -93,7 +96,7 @@ module.exports = {
 	},
 	findOne: (req,res,next) => {
 		const id = req.params.id;
-		Plan.findById(id)
+		User.findById(id)
 			.exec()
 			.then(doc => {
 				if (doc) {
