@@ -12,7 +12,7 @@ const exposedFields = [
 	'file',
 	'version',
 	'ultima_modif',
-	'carpetas'
+	'carpeta'
 ];
 
 /*function saveSede(req,res){

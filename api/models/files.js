@@ -34,7 +34,7 @@ const filesSchema = new Schema({
 		type: Date,
 	},
 
-	carpetas: {
+	carpeta: {
 		type: Schema.ObjectId,
 		ref: 'carpetas'
 	}
