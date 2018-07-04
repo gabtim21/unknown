@@ -6,7 +6,6 @@ const exposedFields = [
 	'email',
 	'imagen',
 	'dni',
-	'password',
 	'cel'
 ];
 

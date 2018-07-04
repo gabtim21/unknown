@@ -32,7 +32,6 @@ class Carpetas extends Component{
 			rows = this.state.data.map(item => (<Carpeta
 												key={item._id}
 												_id={item._id}
-												imagen={item.imagen}
 												name={item.name}
 												description={item.description}
 												recargar={this.cargarData}/>));

@@ -9,14 +9,15 @@ import ImgArchivo from '../../assets/archivo.jpg';
 
 class Sede extends Component{
 	eliminarHandler = () => {
+		if (window.confirm("¿Seguro que quiere eliminarlo?")) {
 		axios.delete('sedes/'+this.props._id+'')
 			.then(response => {
-				alert('se elimino correctamente')
 				this.props.recargar()
 			})
 			.catch(err => {
-				alert('no funciona')
+				alert('Oops, algo va mal')
 			})
+		}
 	}
 	render(){
 		return (

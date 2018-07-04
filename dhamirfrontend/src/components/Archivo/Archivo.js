@@ -8,14 +8,15 @@ import classes from '../Archivos/Archivos.css';
 class Archivo extends Component{
 
 	eliminarHandler = () => {
+		if (window.confirm("¿Seguro que quiere eliminarlo?")) {
 		axios.delete('files/'+this.props._id+'')
 			.then(response => {
-				alert('se elimino correctamente')
 				this.props.recargar()
 			})
 			.catch(err => {
 				alert('Oops, ha ocurrido un error')
 			})
+		}
 	}
 
 	render(){
