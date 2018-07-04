@@ -37,8 +37,7 @@ const exposedFields = [
 module.exports = {
 	create : (req,res,next) => {
 		const data = {
-			...req.body, 
-			imagen: req.files.image.path
+			...req.body
 		}
 		console.log('mi data',data)
 		var sede = new Sede(data);
