@@ -131,7 +131,7 @@ class Login extends Component{
 		}
 		let authRedirect = null;
 		if ( this.state.isAuthenticated ){
-			authRedirect = (<Redirect to={'/'} />);
+			authRedirect = (<Redirect to={'/sedes'} />);
 		}
 		return (
 			<div>

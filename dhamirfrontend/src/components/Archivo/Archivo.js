@@ -14,7 +14,7 @@ class Archivo extends Component{
 				this.props.recargar()
 			})
 			.catch(err => {
-				alert('no funciona: user/'+this.props.key+'')
+				alert('Oops, ha ocurrido un error')
 			})
 	}
 

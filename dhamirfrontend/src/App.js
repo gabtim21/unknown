@@ -31,17 +31,17 @@ class App extends Component {
             return (<Redirect to='/login' />)
           }} />
 
-          <Route path='/archivos-ingresar' component={FormularioArchivo} />
+          <Route path='/archivos/ingresar' component={FormularioArchivo} />
           <Route path='/archivos' component={Archivos} />
 
           <Route path='/carpetas/ingresar' component={FormularioCarpeta} />
           <Route path='/carpetas' component={Carpetas} />
           
+          <Route path='/usuarios/ingresar' component={FormularioUsuario} />
           <Route path='/usuarios' component={Usuarios} />
-          <Route path='/usuarios-ingresar' component={FormularioUsuario} />
-          
+
+          <Route path='/sedes/ingresar' component={FormularioSede} />
           <Route path='/sedes' component={Sedes} />
-          <Route path='/sedes-ingresar' component={FormularioSede} />
           
           <Route render={() => <h1>Not found</h1>}/>
         </Switch>
