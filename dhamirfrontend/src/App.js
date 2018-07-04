@@ -11,6 +11,7 @@ import Sedes from './components/Sedes/Sedes';
 import Archivos from './components/Archivos/Archivos';
 import Carpetas from './components/Carpetas/Carpetas';
 import Usuarios from './components/Usuarios/Usuarios';
+import Perfil from './components/Perfil/Perfil';
 import FormularioUsuario from './components/FormularioUsuario/FormularioUsuario';
 import FormularioSede from './components/FormularioSede/FormularioSede';
 import FormularioArchivo from './components/FormularioArchivo/FormularioArchivo';
@@ -30,6 +31,8 @@ class App extends Component {
             localStorage.removeItem('name');
             return (<Redirect to='/login' />)
           }} />
+
+          <Route path='/perfil' component={Perfil} />
 
           <Route path='/archivos-ingresar' component={FormularioArchivo} />
           <Route path='/archivos' component={Archivos} />
