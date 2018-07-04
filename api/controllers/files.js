@@ -162,10 +162,10 @@ module.exports = {
 		if(req.files){
 
 			const file_path = req.files.file.path;
-			const file_split = file_path.split('\\');
+			const file_split = file_path.split('/');
 			const file_name = file_split[2];
 
-			const ext_split = file_name.split('\.');
+			const ext_split = file_name.split('.');
 			const file_ext = ext_split[1];
 
 			if(file_ext == 'doc' || file_ext == 'docx' || file_ext == 'pdf' || file_ext == 'xls' || file_ext == 'png' || file_ext == 'jpg'){
