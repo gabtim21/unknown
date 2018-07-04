@@ -9,7 +9,6 @@ const exposedFields = [
 	'name',
 	'description',
 	'fecha',
-	'imagen',
 	'sedes'
 ];
 
@@ -41,7 +40,6 @@ module.exports = {
 		const data = {
 			...req.body
 		}
-		console.log('mi data',data)
 		var carpeta = new Carpeta(data);
 		carpeta
 			.save()

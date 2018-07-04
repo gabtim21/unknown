@@ -21,10 +21,6 @@ const carpetaSchema = new Schema({
 		required: true
 	},
 
-	imagen: {
-		type: String
-	},
-
 	sedes: {
 		type: Schema.ObjectId,
 		ref: 'sedes'

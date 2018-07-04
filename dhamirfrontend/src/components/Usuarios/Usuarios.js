@@ -49,7 +49,7 @@ class Usuarios extends Component{
 
 		return (<div className={classes.Archivos}>
 	    	<div>
-	    	<Link to="/usuarios-ingresar"><button className={classes.Add}>Ingresar usuario</button></Link>
+	    	<Link to="/usuarios/ingresar"><button className={classes.Add}>Ingresar usuario</button></Link>
 		    	<Table 
 		    		headers={headers}
 		    		rows={rows} />

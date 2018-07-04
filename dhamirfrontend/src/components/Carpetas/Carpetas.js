@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { Link } from 'react-router-dom';
-import Sede from '../Sede/Sede';
+import Carpeta from '../Carpeta/Carpeta';
 
 import axios from '../../shared/axios-fmcloud';
 
@@ -29,10 +29,9 @@ class Carpetas extends Component{
 	render(){
 		let rows = null;
 		if(this.state.data!==null)
-			rows = this.state.data.map(item => (<Sede
+			rows = this.state.data.map(item => (<Carpeta
 												key={item._id}
 												_id={item._id}
-												imagen={item.imagen}
 												name={item.name}
 												description={item.description}
 												recargar={this.cargarData}/>));

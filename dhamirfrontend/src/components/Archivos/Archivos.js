@@ -48,10 +48,9 @@ class Archivos extends Component{
 										        ultima_modif={item.ultima_modif}
 										        fecha={item.fecha}
 												recargar={this.cargarData}/>));
-										        
 		return (<div className={classes.Archivos}>
 	    	<div>
-	    	<Link to="/archivos-ingresar"><button className={classes.Add}>Ingresar archivo</button></Link>
+	    	<Link to="/archivos/ingresar"><button className={classes.Add}>Ingresar archivo</button></Link>
 		    	<Table 
 		    		headers={headers}
 		    		rows={rows} />

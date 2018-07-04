@@ -23,7 +23,7 @@ const userSchema	= new Schema({
 	},
 	tipo_user: {
 		type		: String,
-		enum		: ['Admin','Especial','Empleado']
+		enum		: ['basico','medio','alto']
 	},
 	tipo_contrato: {
 		type		: String

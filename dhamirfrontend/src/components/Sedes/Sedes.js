@@ -38,7 +38,7 @@ class Sedes extends Component{
 												recargar={this.cargarData}/>));
 		return (<div className={classes.Sedes}>
 	    	<div className={classes.content_box}>
-    		<Link to="/sedes-ingresar"><button className={classes.Add}>Crear nueva sede</button></Link>
+    		<Link to="/sedes/ingresar"><button className={classes.Add}>Crear nueva sede</button></Link>
 	    		{rows}
         	</div>
 	    </div>);

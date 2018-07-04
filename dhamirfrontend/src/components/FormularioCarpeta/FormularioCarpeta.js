@@ -51,19 +51,6 @@ class FormularioCarpeta extends Component{
 				valid: false,
 				touched: false
 			},
-			image: {
-				elementType: 'input',
-				elementConfig: {
-					type: 'file',
-					placeHolder: 'Imagen sede'
-				},
-				value: '',
-				validation: {
-					required: true
-				},
-				valid: false,
-				touched: false
-			},
 			sedes: {
 				elementType: 'input',
 				elementConfig: {
@@ -148,7 +135,7 @@ class FormularioCarpeta extends Component{
 						touched={formElement.config.touched}
 						changed={(event) => this.inputChangeHandler(event, formElement.id)} />
 					</div>))}
-				<button className={Classes.Login} disabled={!this.state.formIsValid}>Crear carpeta</button>
+				<button className={Classes.Login} disabled={!this.state.formIsValid}>Crear nueva carpeta</button>
 			</form>
 			</div>
 			);

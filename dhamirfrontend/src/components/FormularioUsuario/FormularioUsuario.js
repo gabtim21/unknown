@@ -94,8 +94,8 @@ class FormularioUsuario extends Component{
 			imagen: {
 				elementType: 'input',
 				elementConfig: {
-					type: 'text',
-					placeHolder: 'Ingrese un archivo'
+					type: 'file',
+					placeHolder: 'icon'
 				},
 				value: '',
 				validation: {
