@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-=======
+
 const path = require('path');
 const fs = require('fs');
 
 const User = require('../models/user.js');
->>>>>>> 1ca61414cca27d05c303245573266f59cdf58d78
 const utils = require('../lib/utils.js');
-const User = require('../models/user.js');
-
 const exposedFields = [
 	'name',
 	'email',
@@ -102,11 +98,7 @@ module.exports = {
 	},
 	findOne: (req,res,next) => {
 		const id = req.params.id;
-<<<<<<< HEAD
 		User.findById(id).populate({path: 'sedes'})
-=======
-		User.findById(id)
->>>>>>> 1ca61414cca27d05c303245573266f59cdf58d78
 			.exec()
 			.then(doc => {
 				if (doc) {

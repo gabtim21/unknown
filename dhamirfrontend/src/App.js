@@ -32,13 +32,8 @@ class App extends Component {
             return (<Redirect to='/login' />)
           }} />
 
-<<<<<<< HEAD
           <Route path='/perfil' component={Perfil} />
-
-          <Route path='/archivos-ingresar' component={FormularioArchivo} />
-=======
           <Route path='/archivos/ingresar' component={FormularioArchivo} />
->>>>>>> bf7f405624f14608a0df1b8ccf4b9c9717b141e9
           <Route path='/archivos' component={Archivos} />
 
           <Route path='/carpetas/ingresar' component={FormularioCarpeta} />
