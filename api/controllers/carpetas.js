@@ -39,7 +39,7 @@ const exposedFields = [
 module.exports = {
 	create : (req,res,next) => {
 		const data = {
-			...req.body, 
+			...req.body
 		}
 		console.log('mi data',data)
 		var carpeta = new Carpeta(data);
