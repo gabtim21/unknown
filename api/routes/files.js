@@ -12,6 +12,7 @@ router.use(middleware.verifyToken);
 
 router.get('/', FilesController.find);
 router.get('/:id', FilesController.findOne);
+router.get('/bycarpeta/:id', FilesController.findByCarpeta);
 router.post('/',uploadImg, FilesController.create);
 //router.post('/sede', SedeController.saveSede);
 router.put('/:id', FilesController.update);

@@ -15,16 +15,17 @@ class Carpetas extends Component{
 		this.cargarData()
 	}
 	cargarData = () => {
-		axios.get('carpetas')
+		axios.get('carpetas/bysede/'+localStorage.getItem('sedes'))
 			.then(response => {
-				console.log('mi data',response.data.data)
+				console.log('mi response', response.data.data);
 				this.setState({
 					data: response.data.data
 				});
+				console.log('mi data',this.state.data);
 			})
 			.catch(err => {
-				alert('no funciona')
-			})
+				console.log('error',err)
+			});
 	}
 	render(){
 		let rows = null;
@@ -37,7 +38,7 @@ class Carpetas extends Component{
 												recargar={this.cargarData}/>));
 		return (<div className={classes.Archivos}>
 	    	<div className={classes.content_box}>
-    		<Link to="/carpetas/ingresar"><button className={classes.Add}>Crear nueva carpeta</button></Link>
+    		<Link to="sedes/carpetas/ingresar"><button className={classes.Add}>Crear nueva carpeta</button></Link>
 	    		{rows}
         	</div>
 	    </div>);

@@ -80,6 +80,29 @@ module.exports = {
 				});
 			});	
 	},
+	findBySede: (req,res,next) => {
+		const id = req.params.id;
+		Carpeta.find({sedes: id}).sort('fecha')
+			.select(exposedFields.join(' ')).populate({path: 'sedes'})
+			.exec()
+			.then(docs => {
+				const response = {
+					count: docs.length,
+					data: docs.map(doc => {
+						return {
+							...doc['_doc']
+						};
+					})
+				};
+				res.status(200).json(response);
+			})
+			.catch(err => {
+				console.log(err);
+				res.status(500).json({
+					error: err
+				});
+			});	
+	},
 	findOne: (req, res, next) => {
 		const id = req.params.id;
 		Carpeta.findById(id).populate({path: 'sedes'})

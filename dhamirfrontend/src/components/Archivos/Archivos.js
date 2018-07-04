@@ -16,7 +16,7 @@ class Archivos extends Component{
 		this.cargarData()
 	}
 	cargarData = () => {
-		axios.get('files')
+		axios.get('files/bycarpeta/'+this.props.match.params.idCarpeta)
 			.then(response => {
 				console.log('mi data',response.data.data)
 				this.setState({
@@ -24,7 +24,7 @@ class Archivos extends Component{
 				});
 			})
 			.catch(err => {
-				alert('no funciona')
+				alert('No tiene documentos')
 			})
 	}
 	render(){
@@ -50,7 +50,7 @@ class Archivos extends Component{
 												recargar={this.cargarData}/>));
 		return (<div className={classes.Archivos}>
 	    	<div>
-	    	<Link to="/archivos/ingresar"><button className={classes.Add}>Ingresar archivo</button></Link>
+	    	<Link to={"/sedes/carpetas/"+this.props.match.params.idCarpeta+"/ingresar"}><button className={classes.Add}>Ingresar archivo</button></Link>
 		    	<Table 
 		    		headers={headers}
 		    		rows={rows} />

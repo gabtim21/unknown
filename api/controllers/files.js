@@ -92,6 +92,35 @@ module.exports = {
 				});
 			});
 	},
+	findByCarpeta: (req,res,next) => {
+		const id = req.params.id;
+		Archivo.find({carpetas: id}).sort('fecha')
+			.select(exposedFields.join(' ')).populate({
+				path: 'carpetas',
+				populate:{
+					path: 'sedes',
+					model: 'sedes'
+				}
+			})
+			.exec()
+			.then(docs => {
+				const response = {
+					count: docs.length,
+					data: docs.map(doc => {
+						return {
+							...doc['_doc']
+						};
+					})
+				};
+				res.status(200).json(response);
+			})
+			.catch(err => {
+				console.log(err);
+				res.status(500).json({
+					error: err
+				});
+			});
+	},
 	findOne: (req, res, next) => {
 		const id = req.params.id;
 		Archivo.findById(id).populate({
