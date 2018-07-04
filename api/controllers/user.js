@@ -1,12 +1,14 @@
-const User = require('../models/user.js');
 const utils = require('../lib/utils.js');
+const User = require('../models/user.js');
 
 const exposedFields = [
 	'name',
 	'email',
 	'imagen',
+	'tipo_user',
 	'dni',
-	'cel'
+	'cel',
+	'sedes'
 ];
 
 module.exports = {
@@ -71,7 +73,7 @@ module.exports = {
 
 	find: (req,res,next)=>{
 		User.find()
-			.select(exposedFields.join(' '))
+			.select(exposedFields.join(' ')).populate({path: 'sedes'})
 			.exec()
 			.then(docs => {
 				const response = {
@@ -93,7 +95,7 @@ module.exports = {
 	},
 	findOne: (req,res,next) => {
 		const id = req.params.id;
-		Plan.findById(id)
+		User.findById(id).populate({path: 'sedes'})
 			.exec()
 			.then(doc => {
 				if (doc) {
