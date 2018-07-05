@@ -50,7 +50,7 @@ class Archivos extends Component{
 												recargar={this.cargarData}/>));
 		return (<div className={classes.Archivos}>
 	    	<div>
-	    	<Link to={"/sedes/carpetas/"+this.props.match.params.idCarpeta+"/ingresar"}><button className={classes.Add}>Ingresar archivo</button></Link>
+	    	<Link to={'/sedes/'+this.props.match.params.idSede+'/'+this.props.match.params.idCarpeta+'/ingresar'}><button className={classes.Add}>Ingresar archivo</button></Link>
 		    	<Table 
 		    		headers={headers}
 		    		rows={rows} />

@@ -15,7 +15,7 @@ class Carpetas extends Component{
 		this.cargarData()
 	}
 	cargarData = () => {
-		axios.get('carpetas/bysede/'+localStorage.getItem('sedes'))
+		axios.get('carpetas/bysede/'+this.props.match.params.idSede)
 			.then(response => {
 				console.log('mi response', response.data.data);
 				this.setState({
@@ -33,12 +33,13 @@ class Carpetas extends Component{
 			rows = this.state.data.map(item => (<Carpeta
 												key={item._id}
 												_id={item._id}
+												sede={this.props.match.params.idSede}
 												name={item.name}
 												description={item.description}
 												recargar={this.cargarData}/>));
 		return (<div className={classes.Archivos}>
 	    	<div className={classes.content_box}>
-    		<Link to="/sedes/carpetas/ingresar"><button className={classes.Add}>Crear nueva carpeta</button></Link>
+    		<Link to={'/sedes/'+this.props.match.params.idSede+'/ingresar'}><button className={classes.Add}>Crear nueva carpeta</button></Link>
 	    		{rows}
         	</div>
 	    </div>);

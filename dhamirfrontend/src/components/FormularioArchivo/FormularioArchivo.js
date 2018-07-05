@@ -151,7 +151,7 @@ class FormularioArchivo extends Component{
 		let form = (
 			<div className={Classes.Login}>
 			<form className={Classes.Form} onSubmit={this.submitHandler}>
-			<h4>Ingresa los datos requeridos para poder subir un archivo.</h4>
+			<h5>Agregar Archivo | Ingresa los datos pedidos</h5>
 				{formElementsArray.map(formElement => (
 					<div className={Classes.Div}>
 					<Input
@@ -181,7 +181,7 @@ class FormularioArchivo extends Component{
 		}
 		let authRedirect = null;
 		if ( this.state.isAuthenticated ){
-			authRedirect = (<Redirect to={'/sedes/carpetas/'+this.props.match.params.idCarpeta} />);
+			authRedirect = (<Redirect to={'/sedes/'+this.props.match.params.idSede+'/'+this.props.match.params.idCarpeta} />);
 		}
 		return (
 			<div>

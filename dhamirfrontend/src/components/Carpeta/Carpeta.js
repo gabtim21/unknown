@@ -22,7 +22,7 @@ class Carpeta extends Component{
 	render(){
 		return (
 			<div className={classes.Sedes} >
-				<Link to={"/sedes/carpetas/"+this.props._id}>
+				<Link to={'/sedes/'+this.props.sede+'/'+this.props._id}>
 					<img className={classes.Imagen} src={ImgArchivo}/>
 					<h4>{this.props.name}</h4>
 					<p>{this.props.description}</p><br/>

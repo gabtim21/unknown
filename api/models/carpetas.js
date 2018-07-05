@@ -6,7 +6,6 @@ const carpetaSchema = new Schema({
 		type: String,
 		trim: true,
 		required: true,
-		match: [/^[a-zA-Z0-9]+$/, 'Sede invalida'],
 		index: true,
 		unique: true
 	},

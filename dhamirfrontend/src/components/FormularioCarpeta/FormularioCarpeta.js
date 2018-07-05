@@ -38,19 +38,6 @@ class FormularioCarpeta extends Component{
 				valid: false,
 				touched: false
 			},
-			sedes: {
-				elementType: 'input',
-				elementConfig: {
-					type: 'text',
-					placeHolder: 'Sede ObjectID'
-				},
-				value: '',
-				validation: {
-					required: true
-				},
-				valid: false,
-				touched: false
-			},
 			fecha: {
 				elementType: 'input',
 				elementConfig: {
@@ -76,6 +63,7 @@ class FormularioCarpeta extends Component{
 		for (let formElementIdentifier in this.state.carpetaForm){
 			formData.append(formElementIdentifier,this.state.carpetaForm[formElementIdentifier].value);
 		}
+		formData.append('sedes', this.props.match.params.idSede)
 		this.setState({loading: true, error: false});
 		axios.post('carpetas', formData)
 			.then( response => {
@@ -121,7 +109,7 @@ class FormularioCarpeta extends Component{
 		let form = (
 			<div className={Classes.Login}>
 			<form className={Classes.Form} onSubmit={this.submitHandler}>
-			<h5>Carpetas Agregar | Ingresa los datos pedidos</h5>
+			<h5>Agregar Carpeta | Ingresa los datos pedidos</h5>
 				{formElementsArray.map(formElement => (
 					<div className={Classes.Div}>
 					<Input
@@ -151,7 +139,7 @@ class FormularioCarpeta extends Component{
 		}
 		let authRedirect = null;
 		if ( this.state.isAuthenticated ){
-			authRedirect = (<Redirect to={'/sedes/carpetas'} />);
+			authRedirect = (<Redirect to={'/sedes/'+this.props.match.params.idSede} />);
 		}
 		return (
 			<div>

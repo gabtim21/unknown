@@ -36,18 +36,21 @@ class App extends Component {
 
           <Route path='/perfil' component={Perfil} />
 
-          <Route path='/sedes/carpetas/:idCarpeta/ingresar' component={FormularioArchivo} />
-          
-          <Route path='/sedes/carpetas/ingresar' component={FormularioCarpeta} />
-          
-          <Route path='/sedes/carpetas/:idCarpeta' component={Archivos} />
+          <Route path='/sedes/:idSede/:idCarpeta/ingresar' component={FormularioArchivo} />
 
-          <Route path='/sedes/carpetas' component={Carpetas} />
-          
-          <Route path='/usuarios/ingresar' component={FormularioUsuario} />
-          <Route path='/usuarios' component={Usuarios} />
+          <Route path='/sedes/:idSede/ingresar' component={FormularioCarpeta} />
+
+          <Route path='/sedes/:idSede/:idCarpeta' component={Archivos} />          
 
           <Route path='/sedes/ingresar' component={FormularioSede} />
+          
+          <Route path='/sedes/:idSede' component={Carpetas} />
+          
+          <Route path='/usuarios/ingresar' component={FormularioUsuario} />
+
+          <Route path='/usuarios' component={Usuarios} />
+
+
           <Route path='/sedes' component={Sedes} />
 
           <Route path='/conocenos' component={Conocenos}/>
