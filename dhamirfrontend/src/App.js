@@ -35,9 +35,11 @@ class App extends Component {
           <Route path='/perfil' component={Perfil} />
 
           <Route path='/sedes/carpetas/:idCarpeta/ingresar' component={FormularioArchivo} />
+          
+          <Route path='/sedes/carpetas/ingresar' component={FormularioCarpeta} />
+          
           <Route path='/sedes/carpetas/:idCarpeta' component={Archivos} />
 
-          <Route path='/sedes/carpetas/ingresar' component={FormularioCarpeta} />
           <Route path='/sedes/carpetas' component={Carpetas} />
           
           <Route path='/usuarios/ingresar' component={FormularioUsuario} />

@@ -38,7 +38,7 @@ class Carpetas extends Component{
 												recargar={this.cargarData}/>));
 		return (<div className={classes.Archivos}>
 	    	<div className={classes.content_box}>
-    		<Link to="sedes/carpetas/ingresar"><button className={classes.Add}>Crear nueva carpeta</button></Link>
+    		<Link to="/sedes/carpetas/ingresar"><button className={classes.Add}>Crear nueva carpeta</button></Link>
 	    		{rows}
         	</div>
 	    </div>);
