@@ -43,7 +43,6 @@ class Sedes extends Component{
 		}
 	}
 	render(){
-
 		let boton = (<Link to="/sedes/ingresar"><button className={classes.Add}>Crear nueva sede</button></Link>);
 		let rows = null;
 		if(this.state.data!==null){

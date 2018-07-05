@@ -9,14 +9,14 @@ import Classes from '../Login/Login.css';
 
 import {updateObject, checkValidity} from '../../shared/utility';
 
-class FormularioArchivo extends Component{
+class FormularioPedirPermiso extends Component{
 	state = {
-		archivoForm: {
-			name:{
+		carpetaForm: {
+			permisos: {
 				elementType: 'input',
 				elementConfig: {
 					type: 'text',
-					placeHolder: 'Nombre del archivo'
+					placeHolder: 'Permiso(descargar,subir,eliminar)'
 				},
 				value: '',
 				validation: {
@@ -24,72 +24,7 @@ class FormularioArchivo extends Component{
 				},
 				valid: false,
 				touched: false
-			},
-			tipo:{
-				elementType: 'input',
-				elementConfig: {
-					type: 'text',
-					placeHolder: 'Tipo (docx, pdf, etc)'
-				},
-				value: '',
-				validation: {
-					required: true
-				},
-				valid: false,
-				touched: false
-			},
-			fecha:{
-				elementType: 'input',
-				elementConfig: {
-					type: 'date',
-					placeHolder: 'fecha'
-				},
-				value: '',
-				validation: {
-					required: true
-				},
-				valid: false,
-				touched: false
-			},
-			file:{
-				elementType: 'input',
-				elementConfig: {
-					type: 'file',
-					placeHolder: 'Ingresa el archivo'
-				},
-				value: '',
-				validation: {
-					required: true
-				},
-				valid: false,
-				touched: false
-			},
-			version:{
-				elementType: 'input',
-				elementConfig: {
-					type: 'number',
-					placeHolder: 'Version'
-				},
-				value: '',
-				validation: {
-					required: true
-				},
-				valid: false,
-				touched: false
-			},
-			ultima_modif:{
-				elementType: 'input',
-				elementConfig: {
-					type: 'date',
-					placeHolder: 'Ultima modificacion'
-				},
-				value: '',
-				validation: {
-					required: false
-				},
-				valid: false,
-				touched: false
-			},
+			}
 		},
 		error: false,
 		loading: false,
@@ -100,13 +35,14 @@ class FormularioArchivo extends Component{
 	submitHandler = ( event ) => {
 		event.preventDefault();
 		const formData = new FormData();
-		for (let formElementIdentifier in this.state.archivoForm){
-			formData.append(formElementIdentifier,this.state.archivoForm[formElementIdentifier].value);
+		for (let formElementIdentifier in this.state.carpetaForm){
+			formData.append(formElementIdentifier,this.state.carpetaForm[formElementIdentifier].value);
 		}
-		formData.append('dueno', localStorage.getItem('id'));
-		console.log('mi formdata',formData);
+		formData.append('usuario', localStorage.getItem('id'));
+		formData.append('file', this.props.match.params.idFile);
+
 		this.setState({loading: true, error: false});
-		axios.post('files', formData)
+		axios.post('permisos', formData)
 			.then( response => {
 				this.setState({
 					loading: false,
@@ -123,12 +59,12 @@ class FormularioArchivo extends Component{
 	}
 
 	inputChangeHandler = (event, inputIdentifier) => {
-		const updatedFormElement = updateObject(this.state.archivoForm[inputIdentifier], {
-			value: inputIdentifier=='file'?event.target.files[0]:event.target.value,
-			valid: checkValidity(event.target.value, this.state.archivoForm[inputIdentifier].validation),
+		const updatedFormElement = updateObject(this.state.carpetaForm[inputIdentifier], {
+			value: inputIdentifier=='image'?event.target.files[0]:event.target.value,
+			valid: checkValidity(event.target.value, this.state.carpetaForm[inputIdentifier].validation),
 			touched: true
 		});
-		const updatedloginForm = updateObject(this.state.archivoForm,{
+		const updatedloginForm = updateObject(this.state.carpetaForm,{
 			[inputIdentifier]: updatedFormElement
 		});
 
@@ -136,21 +72,21 @@ class FormularioArchivo extends Component{
 		for (let inputIdentifier in updatedloginForm) {
 			formIsValid = updatedloginForm[inputIdentifier].valid && formIsValid;
 		}
-		this.setState({archivoForm: updatedloginForm, formIsValid: formIsValid});
+		this.setState({carpetaForm: updatedloginForm, formIsValid: formIsValid});
 	}
 
 	render(){
 		const formElementsArray = [];
-		for (let key in this.state.archivoForm){
+		for (let key in this.state.carpetaForm){
 			formElementsArray.push({
 				id: key,
-				config: this.state.archivoForm[key]
+				config: this.state.carpetaForm[key]
 			});
 		}
 		let form = (
 			<div className={Classes.Login}>
 			<form className={Classes.Form} onSubmit={this.submitHandler}>
-			<h5>Agregar Archivo | Ingresa los datos pedidos</h5>
+			<h5>Pedir Permiso | Especifica que accesos quieres</h5>
 				{formElementsArray.map(formElement => (
 					<div className={Classes.Div}>
 					<Input
@@ -163,7 +99,7 @@ class FormularioArchivo extends Component{
 						touched={formElement.config.touched}
 						changed={(event) => this.inputChangeHandler(event, formElement.id)} />
 					</div>))}
-				<button className={Classes.Login} disabled={!this.state.formIsValid}>Ingresar archivo</button>
+				<button className={Classes.Login} disabled={!this.state.formIsValid}>Crear nueva carpeta</button>
 			</form>
 			</div>
 			);
@@ -180,7 +116,7 @@ class FormularioArchivo extends Component{
 		}
 		let authRedirect = null;
 		if ( this.state.isAuthenticated ){
-			authRedirect = (<Redirect to={'/sedes/'+this.props.match.params.idSede+'/'+this.props.match.params.idCarpeta} />);
+			authRedirect = (<Redirect to={'/sedes/'+this.props.match.params.idCarpeta+'/permiso'} />);
 		}
 		return (
 			<div>
@@ -192,4 +128,4 @@ class FormularioArchivo extends Component{
 	}
 }
 
-export default FormularioArchivo;
+export default FormularioPedirPermiso;

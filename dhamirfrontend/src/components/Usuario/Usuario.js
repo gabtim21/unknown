@@ -26,18 +26,20 @@ class Usuario extends Component{
 			key={this.props._id}
 			_id={this.props._id}
 			name={this.props.name}
-			dni={this.props.dni}
+			email={this.props.email}
+			tipo_user={this.props.tipo_user}
 			cel={this.props.cel}
-			email={this.props.email}/>
+			dni={this.props.dni}/>
 	}
 
 	render(){
 		return (
 			<tr>
 				<td>{this.props.name}</td>
-				<td>{this.props.dni}</td>
-				<td>{this.props.cel}</td>
 				<td>{this.props.email}</td>
+				<td>{this.props.tipo_user}</td>
+				<td>{this.props.cel}</td>
+				<td>{this.props.dni}</td>
 				<td>
 					<Link to="/usuarios/ingresar" onClick={this.editarHandler}><button className={classes.Edit}>Editar</button></Link>
 					<button className={classes.Elim} onClick={this.eliminarHandler}>Eliminar</button>

@@ -9,7 +9,7 @@ class Archivo extends Component{
 
 	eliminarHandler = () => {
 		if (window.confirm("¿Seguro que quiere eliminarlo?")) {
-		axios.delete('files/'+this.props._id+'')
+		axios.delete('files/'+this.props._id)
 			.then(response => {
 				this.props.recargar()
 			})
@@ -18,15 +18,23 @@ class Archivo extends Component{
 			})
 		}
 	}
-
+	descargarHandler = () =>{
+	}
+	subirHandler = () =>{
+	}
 	render(){
-		let btnSubi = (
-				<button className={classes.Edit} onClick='/:id'>Subir</button>);
 		let btnDesc = (
 				<button className={classes.Desc} onClick='/:id'>Descargar</button>);
+		let btnSubi = (
+			<span>
+				{btnDesc}
+				<button className={classes.Edit} onClick='/:id'>Subir</button>
+			</span>);
 		let btnElim = (
-				<button className={classes.Elim} onClick={this.eliminarHandler}>Eliminar</button>);
-		//{localStorage.getItem('tipo_user')=="basico"?null:botones}
+			<span>
+				{btnSubi}
+				<button className={classes.Elim} onClick={this.eliminarHandler}>Eliminar</button>
+			</span>);
 		return (
 			<tr>
 				<td>{this.props.name}</td>
@@ -35,6 +43,9 @@ class Archivo extends Component{
 				<td>{this.props.version}</td>
 				<td>{this.props.ultima_modif}</td>
 				<td>
+					{this.props.permisos=="subir"?btnSubi:null}
+					{this.props.permisos=="descargar"?btnDesc:null}
+					{this.props.permisos=="eliminar"?btnElim:null}
 					{localStorage.getItem('tipo_user')=="alto"?btnElim:null}
 				</td>
 			</tr>);

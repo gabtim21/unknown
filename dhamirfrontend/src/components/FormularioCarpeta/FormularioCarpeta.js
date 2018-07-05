@@ -16,7 +16,7 @@ class FormularioCarpeta extends Component{
 				elementType: 'input',
 				elementConfig: {
 					type: 'text',
-					placeHolder: 'Nombre (sin espacios)'
+					placeHolder: 'Nombre'
 				},
 				value: '',
 				validation: {

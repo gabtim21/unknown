@@ -36,12 +36,13 @@ const userRouter = require('./routes/user');
 const sedeRouter = require('./routes/sedes');
 const carpetaRouter = require('./routes/carpetas');
 const fileRouter = require('./routes/files');
-
+const permisoRouter = require('./routes/permisos');
 
 router.use('/user', userRouter);
 router.use('/sedes', sedeRouter);
 router.use('/carpetas', carpetaRouter);
 router.use('/files', fileRouter);
+router.use('/permisos', permisoRouter);
 
 app.use('/api', router);
 

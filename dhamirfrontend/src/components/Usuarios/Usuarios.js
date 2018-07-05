@@ -30,9 +30,10 @@ class Usuarios extends Component{
 	render(){
 		const headers = [
 			'Nombre',
-			'DNI',
-			'Celular',
 			'Email',
+			'Tipo Usuario',
+			'Celular',
+			'DNI',
 			'Acciones'
 		];
 
@@ -43,6 +44,7 @@ class Usuarios extends Component{
 												_id={item._id}
 												name={item.name}
 												dni={item.dni}
+												tipo_user={item.tipo_user}
 												cel={item.cel}
 												email={item.email}
 												recargar={this.cargarData}/>));

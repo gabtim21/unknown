@@ -11,29 +11,6 @@ const exposedFields = [
 	'imagen'
 ];
 
-/*function saveSede(req,res){
-	var sede = new Sede();
-	var params = req.body;
-
-	sede.name = params.name;
-	sede.description = params.description;
-	sede.imagen = 'NULL';
-
-	sede.save((err, sedeStored) =>{
-		if(err){
-			res.status(500).send({message: 'Erro Gabtimm'});
-		}else{
-			if(!sedeStored){
-				res.status(404).send({message: 'No fue guardado'});
-			}else{
-				res.status(200).send({sede: sedeStored});
-			}
-		}
-	});
-	
-
-}*/
-
 module.exports = {
 	create : (req,res,next) => {
 		const data = {

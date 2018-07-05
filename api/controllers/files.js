@@ -4,39 +4,18 @@ const fs = require('fs');
 const Sede = require('../models/sedes.js');
 const Carpeta = require('../models/carpetas.js');
 const Archivo = require('../models/files.js');
+const Permiso = require('../models/permisos.js');
 
 const exposedFields = [
 	'name',
 	'tipo',
 	'fecha',
 	'file',
+	'dueno',
 	'version',
 	'ultima_modif',
 	'carpeta'
 ];
-
-/*function saveSede(req,res){
-	var sede = new Sede();
-	var params = req.body;
-
-	sede.name = params.name;
-	sede.description = params.description;
-	sede.imagen = 'NULL';
-
-	sede.save((err, sedeStored) =>{
-		if(err){
-			res.status(500).send({message: 'Erro Gabtimm'});
-		}else{
-			if(!sedeStored){
-				res.status(404).send({message: 'No fue guardado'});
-			}else{
-				res.status(200).send({sede: sedeStored});
-			}
-		}
-	});
-
-
-}*/
 
 module.exports = {
 	create : (req,res,next) => {
@@ -92,6 +71,7 @@ module.exports = {
 				});
 			});
 	},
+	//busca todos los archivos dentro de una carpeta
 	findByCarpeta: (req,res,next) => {
 		const id = req.params.id;
 		Archivo.find({carpeta: id}).sort('fecha')
