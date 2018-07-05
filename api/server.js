@@ -10,7 +10,13 @@ extended: true
 
 app.use(bodyParser.json());
 
-const port = process.env.PORT || 6060;
+const port = process.env.PORT || 3000;
+
+app.use('view engine','jade');
+
+app.use(express.static('public'));
+
+
 
 app.use("/", function(req, res, next){
 	res.header('Access-Control-Allow-Origin', '*');
@@ -49,6 +55,10 @@ app.use('/api', router);
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/Appfmcloud');
 mongoose.Promise = global.Promise;
+
+app.use( function(req, res){
+	res.render('main');
+});
 
 app.listen(port);
 console.log('Ingresa al puerto ' + port);
