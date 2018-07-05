@@ -28,15 +28,17 @@ class Archivos extends Component{
 			})
 	}
 	render(){
+		let boton = (
+	    	<Link to={'/sedes/'+this.props.match.params.idSede+'/'+this.props.match.params.idCarpeta+'/ingresar'}><button className={classes.Add}>Ingresar archivo</button></Link>
+			);
 		const headers = [
 			'Nombre',
 			'Tipo',
+			'Fecha de creación',
 			'Version',
 			'Ult. modificacion',
-			'Fecha',
-			'Acciones'
+			''
 		];
-
 		let rows = null;
 		if(this.state.data!==null)
 			rows = this.state.data.map(item => (<Archivo
@@ -50,7 +52,7 @@ class Archivos extends Component{
 												recargar={this.cargarData}/>));
 		return (<div className={classes.Archivos}>
 	    	<div>
-	    	<Link to={'/sedes/'+this.props.match.params.idSede+'/'+this.props.match.params.idCarpeta+'/ingresar'}><button className={classes.Add}>Ingresar archivo</button></Link>
+				{localStorage.getItem('tipo_user')=="basico"?null:boton}
 		    	<Table 
 		    		headers={headers}
 		    		rows={rows} />

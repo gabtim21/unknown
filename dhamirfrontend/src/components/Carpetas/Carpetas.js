@@ -28,6 +28,7 @@ class Carpetas extends Component{
 			});
 	}
 	render(){
+		let boton = (<Link to={'/sedes/'+this.props.match.params.idSede+'/ingresar'}><button className={classes.Add}>Crear nueva carpeta</button></Link>);
 		let rows = null;
 		if(this.state.data!==null)
 			rows = this.state.data.map(item => (<Carpeta
@@ -39,7 +40,7 @@ class Carpetas extends Component{
 												recargar={this.cargarData}/>));
 		return (<div className={classes.Archivos}>
 	    	<div className={classes.content_box}>
-    		<Link to={'/sedes/'+this.props.match.params.idSede+'/ingresar'}><button className={classes.Add}>Crear nueva carpeta</button></Link>
+				{localStorage.getItem('tipo_user')=="alto"?boton:null}
 	    		{rows}
         	</div>
 	    </div>);

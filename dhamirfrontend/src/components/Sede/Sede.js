@@ -19,6 +19,13 @@ class Sede extends Component{
 		}
 	}
 	render(){
+		let botones = (
+			<span>
+			<button className={classes.Edit} onClick='/{props.key}'>Editar</button>
+			<button className={classes.Elim} onClick={this.eliminarHandler}>Eliminar</button>
+			</span>
+			);
+
 		return (
 			<div className={classes.Sedes} >
 				<Link to={'sedes/'+this.props._id}>
@@ -26,8 +33,7 @@ class Sede extends Component{
 					<h4><a className={classes.DetalleSede} href="">{this.props.name}</a></h4>
 					<p>{this.props.description}</p><br/>
 				</Link>
-				<button className={classes.Edit} onClick='/{props.key}'>Editar</button>
-				<button className={classes.Elim} onClick={this.eliminarHandler}>Eliminar</button>
+				{localStorage.getItem('tipo_user')=="alto"?botones:null}
 			</div>
 		);
 	}
