@@ -1,0 +1,16 @@
+.Footer {
+	color: #FFF;
+	background-color:#373938;
+	padding: 10px 10px;
+
+}
+.links p{
+	border: 1%;
+    border-style: none none solid none;
+        border-color:  #212C2A;
+        color: #48C5B7;
+}
+.links p:hover{
+	background:  #212C2A;
+
+}

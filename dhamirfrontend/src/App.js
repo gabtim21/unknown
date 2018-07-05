@@ -12,6 +12,8 @@ import Archivos from './components/Archivos/Archivos';
 import Carpetas from './components/Carpetas/Carpetas';
 import Usuarios from './components/Usuarios/Usuarios';
 import Perfil from './components/Perfil/Perfil';
+import Footer from './components/Footer/Footer';
+import Conocenos from './components/Conocenos/Conocenos';
 import FormularioUsuario from './components/FormularioUsuario/FormularioUsuario';
 import FormularioSede from './components/FormularioSede/FormularioSede';
 import FormularioArchivo from './components/FormularioArchivo/FormularioArchivo';
@@ -45,9 +47,12 @@ class App extends Component {
 
           <Route path='/sedes/ingresar' component={FormularioSede} />
           <Route path='/sedes' component={Sedes} />
+
+          <Route path='/conocenos' component={Conocenos}/>
           
           <Route render={() => <h1>Not found</h1>}/>
         </Switch>
+        <Footer/>
       </div>
     </BrowserRouter>);
   }

@@ -1,0 +1,77 @@
+.info{
+   background-image: url("../../assets/conocenos.gif");
+   background-color: #fff;
+   color: #212C2A;
+   width: 100%;
+   height: 100%;
+   padding-top: 80px;
+   background-repeat: no-repeat;
+   background-position: center;
+}
+
+.contenttwo{
+	width: 100%;
+	background: rgba(0, 0, 0, 0.35);
+}
+
+.contentdetails{
+	text-align: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+@media screen and (max-width: 100%){
+	.contentdetails{
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+	.info{
+   background-image: url("../../assets/conocenos.gif");
+   background-color: #FFBF00;
+   width: 100%;
+   height: 100%;
+   background-repeat: no-repeat;
+   background-position: center;
+   
+}
+
+}
+
+.contentdetailsfora{
+	padding: 20px;
+}
+
+.contentdetailsfora img{
+	height: 200px;
+    width: 200px;
+    border-radius: 5%;
+    background-color: white;
+	
+}
+.contentdetailsfora h3,p{
+	border: 1%;
+    border-style: none none solid none;
+        border-color:  #212C2A;
+        color: #48C5B7;
+}
+.contentdetailsfora h3,p:hover{
+	background:  #212C2A;
+
+}
+.contentdetailsfora img:hover{
+	background:  #212C2A;
+
+}
+
+.contentdetailsfora p{
+	margin-top: 20px;
+	color: #48C5B7;
+}
+
+.icon-heart, .icon-laptop, .icon-support{
+	color: #EA5D5D;
+	font-size: 40px;
+}
+
+
