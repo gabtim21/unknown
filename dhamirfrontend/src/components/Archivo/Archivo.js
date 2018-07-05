@@ -28,6 +28,7 @@ class Archivo extends Component{
 				<button className={classes.Elim} onClick={this.eliminarHandler}>Eliminar</button>);
 		//{localStorage.getItem('tipo_user')=="basico"?null:botones}
 		return (
+			
 			<tr>
 				<td>{this.props.name}</td>
 				<td>{this.props.type}</td>

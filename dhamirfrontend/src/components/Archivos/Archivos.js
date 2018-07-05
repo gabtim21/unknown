@@ -29,8 +29,10 @@ class Archivos extends Component{
 	}
 	render(){
 		let boton = (
-	    	<Link to={'/sedes/'+this.props.match.params.idSede+'/'+this.props.match.params.idCarpeta+'/ingresar'}><button className={classes.Add}>Ingresar archivo</button></Link>
-			);
+			<span>
+		    	<Link to={'/sedes/'+this.props.match.params.idSede+'/'+this.props.match.params.idCarpeta+'/ingresar'}><button className={classes.Add}>Ingresar archivo</button></Link>
+		    	<Link to={'/sedes/'+this.props.match.params.idSede}><button className={classes.Regresar}>Regresar</button></Link>
+			</span>);
 		const headers = [
 			'Nombre',
 			'Tipo',
@@ -51,11 +53,13 @@ class Archivos extends Component{
 										        fecha={item.fecha}
 												recargar={this.cargarData}/>));
 		return (<div className={classes.Archivos}>
-	    	<div>
+	    	<div className={classes.contentdetails}>
 				{localStorage.getItem('tipo_user')=="basico"?null:boton}
+		    	<div className={classes.contenttwo}>
 		    	<Table 
 		    		headers={headers}
 		    		rows={rows} />
+		    	</div>
 	        </div>
 	    </div>);
 	}
