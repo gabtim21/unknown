@@ -20,17 +20,22 @@ class Archivo extends Component{
 	}
 
 	render(){
+		let btnSubi = (
+				<button className={classes.Edit} onClick='/:id'>Subir</button>);
+		let btnDesc = (
+				<button className={classes.Desc} onClick='/:id'>Descargar</button>);
+		let btnElim = (
+				<button className={classes.Elim} onClick={this.eliminarHandler}>Eliminar</button>);
+		//{localStorage.getItem('tipo_user')=="basico"?null:botones}
 		return (
 			<tr>
 				<td>{this.props.name}</td>
 				<td>{this.props.type}</td>
+				<td>{this.props.fecha}</td>
 				<td>{this.props.version}</td>
 				<td>{this.props.ultima_modif}</td>
-				<td>{this.props.fecha}</td>
 				<td>
-					<button className={classes.Edit} onClick='/:id'>Editar</button>
-					<button className={classes.Desc} onClick='/:id'>Descargar</button>
-					<button className={classes.Elim} onClick={this.eliminarHandler}>Eliminar</button>
+					{localStorage.getItem('tipo_user')=="alto"?btnElim:null}
 				</td>
 			</tr>);
 	}

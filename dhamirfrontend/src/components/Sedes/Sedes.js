@@ -10,21 +10,18 @@ import saludo from '../../assets/saludo.GIF';
 
 class Sedes extends Component{
 	state = {
-		data: null,
-		//count: 0
+		data: null
 	}
 	componentDidMount(){
 		this.cargarData()
 	}
 	cargarData = () => {
-		//POR AHORA solamente se puede estar unido a una sede pOR AHORA;;
 		if(localStorage.getItem('tipo_user')=="alto"){
 			axios.get('sedes')
 				.then(response => {
 					console.log('mi response', response.data.data);
 					this.setState({
-						data: response.data.data,
-						//count: this.state.count + 1
+						data: response.data.data
 					});
 					console.log('mi data',this.state.data);
 				})
@@ -36,8 +33,7 @@ class Sedes extends Component{
 				.then(response => {
 					console.log('mi response', response.data.data);
 					this.setState({
-						data: response.data.data,
-						//count: this.state.count + 1
+						data: response.data.data
 					});
 					console.log('mi data',this.state.data);
 				})
@@ -47,6 +43,8 @@ class Sedes extends Component{
 		}
 	}
 	render(){
+
+		let boton = (<Link to="/sedes/ingresar"><button className={classes.Add}>Crear nueva sede</button></Link>);
 		let rows = null;
 		if(this.state.data!==null){
 			if(localStorage.getItem('tipo_user')=="alto"){
@@ -64,15 +62,17 @@ class Sedes extends Component{
 					description={this.state.data.description}
 					recargar={this.cargarData}/>);
 			}
-		} /*else {
-			alert('No tienes sedes')
-			return <Redirect to={'/logout'} />
-		}*/
+		}
 		
 		return (<div className={classes.Sedes}>
+<<<<<<< HEAD
 	    	<div className={classes.contentdetails}>
     		<Link to="/sedes/ingresar"><button className={classes.Add}>Crear nueva sede</button></Link>
     	 	
+=======
+	    	<div className={classes.content_box}>
+	    		{localStorage.getItem('tipo_user')=="alto"?boton:null}
+>>>>>>> c71c6500ca7f216028d764a4ab0703cfa11c9842
 	    		{rows}
         	</div>
 	    </div>);
