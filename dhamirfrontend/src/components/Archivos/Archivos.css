@@ -1,20 +1,50 @@
 .Archivos {
-	padding-top: 60px;
+	padding-top: 40px;
 }
 
-.Archivos div {
-	margin-left: 10%;
-	margin-right: 10%;
-	border-radius: 20px;
-	border:1px solid black;
+.contenttwo{
+	padding: 20px;
+	width: 100%;
+	min-height: 1000px;
+	background: rgba(204,204,102, 0.35);
 }
+.contentone{
+	padding: 20px;
+	width: 100%;
+	min-height: 1000px;
+	background: rgba(11,170,159, 0.35);
+}
+
+.contentdetails{
+	text-align: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+
+}
+
+.contentdetailsfora{
+	padding: 20px;
+}
+
+.contentdetailsfora img{
+	height: 70px;
+    width: 70px;
+    border-radius: 5%;
+	
+}
+.contentdetailsfora p{
+    border-color:  #212C2A;
+    color: #212C2A;
+}
+
 
 .Archivos table {
 	width: 100%;
 }
 
 .Archivos th, td {
-    padding: 15px;
+    padding: 25px;
     text-align: left;
 }
 
@@ -35,20 +65,42 @@
 }
 
 .Add {
-	float: left;
+	float: none;
+	width: 100px;
 	margin: 15px ;
 	padding: 10px;
 	font: inherit;
-	border: 1px solid #48BFB3;
+	border: 1px solid #fff;
 	color: white;
 	background-color: #48BFB3;
 	cursor:pointer;
+	text-align: center
+
 }
 
 .Add:hover,
 .Add:active{
-	background-color: transparent;
-	color: #48BFB3;
+	background-color: #448866;
+	color: #fff;
+}
+
+.Regresar {
+	float: none;
+	width: 100px;
+	margin: 15px ;
+	padding: 10px;
+	font: inherit;
+	border: 1px solid #fff;
+	color: white;
+	background-color: #DD8833;
+	cursor:pointer;
+
+}
+
+.Regresar:hover,
+.Regresar:active{
+	background-color: #CC9933;
+	color: #fff;
 }
 
 .Archivos .Edit{

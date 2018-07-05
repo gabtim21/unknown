@@ -36,6 +36,7 @@ class Archivo extends Component{
 				<button className={classes.Elim} onClick={this.eliminarHandler}>Eliminar</button>
 			</span>);
 		return (
+			
 			<tr>
 				<td>{this.props.name}</td>
 				<td>{this.props.type}</td>

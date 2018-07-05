@@ -34,6 +34,11 @@ class App extends Component {
           <Route path='/logout' render={() => {
             localStorage.removeItem('token');
             localStorage.removeItem('name');
+            localStorage.removeItem('name');
+            localStorage.removeItem('email');
+            localStorage.removeItem('sedes');
+            localStorage.removeItem('id');
+            localStorage.removeItem('tipo_user');
             return (<Redirect to='/login' />)
           }} />
 
@@ -41,13 +46,13 @@ class App extends Component {
 
           <Route path='/sedes/:idCarpeta/permiso/:idFile' component={FormularioPedirPermiso} />
           <Route path='/sedes/:idCarpeta/permiso' component={PedirPermiso} />}
+          <Route path='/sedes/:idSede/ingresar' component={FormularioCarpeta} />
 
           <Route path='/sedes/:idSede/:idCarpeta/ingresar' component={FormularioArchivo} />
 
 
           <Route path='/sedes/:idSede/:idCarpeta' component={Archivos} />
 
-          <Route path='/sedes/:idSede/ingresar' component={FormularioCarpeta} />
 
 
           <Route path='/sedes/ingresar' component={FormularioSede} />

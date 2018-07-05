@@ -50,11 +50,13 @@ class Usuarios extends Component{
 												recargar={this.cargarData}/>));
 
 		return (<div className={classes.Archivos}>
-	    	<div>
+	    	<div className={classes.contentdetails}>
 	    	<Link to="/usuarios/ingresar"><button className={classes.Add}>Ingresar usuario</button></Link>
+		    	<div className={classes.contentone}>
 		    	<Table 
 		    		headers={headers}
 		    		rows={rows} />
+		    	</div>
 	        </div>
 	    </div>);
 	}
