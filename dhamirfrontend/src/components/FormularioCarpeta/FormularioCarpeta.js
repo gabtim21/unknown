@@ -16,7 +16,7 @@ class FormularioCarpeta extends Component{
 				elementType: 'input',
 				elementConfig: {
 					type: 'text',
-					placeHolder: 'Nombre'
+					placeHolder: 'Nombre (sin espacios)'
 				},
 				value: '',
 				validation: {
@@ -38,11 +38,11 @@ class FormularioCarpeta extends Component{
 				valid: false,
 				touched: false
 			},
-			fecha: {
+			sedes: {
 				elementType: 'input',
 				elementConfig: {
-					type: 'date',
-					placeHolder: 'Fecha'
+					type: 'text',
+					placeHolder: 'Sede ObjectID'
 				},
 				value: '',
 				validation: {
@@ -51,11 +51,10 @@ class FormularioCarpeta extends Component{
 				valid: false,
 				touched: false
 			},
-			sedes: {
+			fecha: {
 				elementType: 'input',
 				elementConfig: {
-					type: 'text',
-					placeHolder: 'Sede ObjectID'
+					type: 'date'
 				},
 				value: '',
 				validation: {
@@ -122,7 +121,7 @@ class FormularioCarpeta extends Component{
 		let form = (
 			<div className={Classes.Login}>
 			<form className={Classes.Form} onSubmit={this.submitHandler}>
-			<h4>Ingresa los datos pedidos</h4>
+			<h5>Carpetas Agregar | Ingresa los datos pedidos</h5>
 				{formElementsArray.map(formElement => (
 					<div className={Classes.Div}>
 					<Input
@@ -152,7 +151,7 @@ class FormularioCarpeta extends Component{
 		}
 		let authRedirect = null;
 		if ( this.state.isAuthenticated ){
-			authRedirect = (<Redirect to={'/carpetas'} />);
+			authRedirect = (<Redirect to={'/sedes/carpetas'} />);
 		}
 		return (
 			<div>

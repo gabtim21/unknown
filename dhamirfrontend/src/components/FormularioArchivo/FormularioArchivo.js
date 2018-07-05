@@ -29,7 +29,7 @@ class FormularioArchivo extends Component{
 				elementType: 'input',
 				elementConfig: {
 					type: 'text',
-					placeHolder: 'Tipo (.docx .pdf etc)'
+					placeHolder: 'Tipo (docx, pdf, etc)'
 				},
 				value: '',
 				validation: {
@@ -42,7 +42,7 @@ class FormularioArchivo extends Component{
 				elementType: 'input',
 				elementConfig: {
 					type: 'date',
-					placeHolder: 'Telefono / Celular'
+					placeHolder: 'fecha'
 				},
 				value: '',
 				validation: {
@@ -64,6 +64,19 @@ class FormularioArchivo extends Component{
 				valid: false,
 				touched: false
 			},
+			version:{
+				elementType: 'input',
+				elementConfig: {
+					type: 'number',
+					placeHolder: 'Version'
+				},
+				value: '',
+				validation: {
+					required: true
+				},
+				valid: false,
+				touched: false
+			},
 			ultima_modif:{
 				elementType: 'input',
 				elementConfig: {
@@ -72,7 +85,7 @@ class FormularioArchivo extends Component{
 				},
 				value: '',
 				validation: {
-					required: true
+					required: false
 				},
 				valid: false,
 				touched: false
@@ -91,7 +104,8 @@ class FormularioArchivo extends Component{
 		for (let formElementIdentifier in this.state.archivoForm){
 			formData.append(formElementIdentifier,this.state.archivoForm[formElementIdentifier].value);
 		}
-		console.log(formData);
+		formData.append('carpeta', this.props.match.params.idCarpeta)
+		console.log('mi formdata',formData);
 		this.setState({loading: true, error: false});
 		axios.post('files', formData)
 			.then( response => {
@@ -167,7 +181,7 @@ class FormularioArchivo extends Component{
 		}
 		let authRedirect = null;
 		if ( this.state.isAuthenticated ){
-			authRedirect = (<Redirect to={'/archivos'} />);
+			authRedirect = (<Redirect to={'/sedes/carpetas/'+this.props.match.params.idCarpeta} />);
 		}
 		return (
 			<div>

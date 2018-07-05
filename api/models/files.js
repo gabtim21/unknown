@@ -13,7 +13,7 @@ const filesSchema = new Schema({
 
 	tipo: {
 		type: String,
-		enum: ['doc','pdf','png','jpg','xml'],
+		enum: ['docx','doc','pdf','png','jpg','xml','xlsx'],
 		required: true
 	},
 

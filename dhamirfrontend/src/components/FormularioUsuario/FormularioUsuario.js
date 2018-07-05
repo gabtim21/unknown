@@ -55,7 +55,20 @@ class FormularioUsuario extends Component{
 				elementType: 'input',
 				elementConfig: {
 					type: 'text',
-					placeHolder: 'Tipo de Usuario'
+					placeHolder: 'Tipo usuario(basico,medio,alto)'
+				},
+				value: '',
+				validation: {
+					required: true
+				},
+				valid: false,
+				touched: false
+			},
+			tipo_contrato: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'text',
+					placeHolder: 'Tipo de Contrato'
 				},
 				value: '',
 				validation: {
@@ -96,6 +109,19 @@ class FormularioUsuario extends Component{
 				elementConfig: {
 					type: 'file',
 					placeHolder: 'icon'
+				},
+				value: '',
+				validation: {
+					required: true
+				},
+				valid: false,
+				touched: false
+			},
+			sedes: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'text',
+					placeHolder: 'Object ID'
 				},
 				value: '',
 				validation: {

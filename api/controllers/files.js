@@ -94,7 +94,7 @@ module.exports = {
 	},
 	findByCarpeta: (req,res,next) => {
 		const id = req.params.id;
-		Archivo.find({carpetas: id}).sort('fecha')
+		Archivo.find({carpeta: id}).sort('fecha')
 			.select(exposedFields.join(' ')).populate({
 				path: 'carpetas',
 				populate:{
