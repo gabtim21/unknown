@@ -3,9 +3,8 @@ import {NavLink, Link} from 'react-router-dom';
 
 import axios from '../../shared/axios-fmcloud';
 
-import classes from '../Sede/Sede.css';
-import ImgArchivo from '../../assets/archivo.jpg';
-
+import classes from '../Carpeta/Carpeta.css';
+import Cpt from '../../assets/Cpt.png';
 
 class Carpeta extends Component{
 	eliminarHandler = () => {
@@ -21,14 +20,16 @@ class Carpeta extends Component{
 	}
 	render(){
 		return (
-			<div className={classes.Sedes} >
+			<div className={classes.contenttwo} >
+			<div className={classes.contentdetailsfora}>
 				<Link to={'/sedes/'+this.props.sede+'/'+this.props._id}>
-					<img className={classes.Imagen} src={ImgArchivo}/>
-					<h4>{this.props.name}</h4>
+					<img src={Cpt}/>
+					<h4><a className={classes.DetalleCarpeta}>{this.props.name}</a></h4>
 					<p>{this.props.description}</p><br/>
 				</Link>
 				<button className={classes.Edit} onClick='/{props.key}'>Editar</button>
 				<button className={classes.Elim} onClick={this.eliminarHandler}>Eliminar</button>
+			</div>
 			</div>
 		);
 	}

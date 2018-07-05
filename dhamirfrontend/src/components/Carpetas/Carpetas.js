@@ -4,7 +4,7 @@ import Carpeta from '../Carpeta/Carpeta';
 
 import axios from '../../shared/axios-fmcloud';
 
-import classes from '../Archivos/Archivos.css';
+import classes from '../Carpeta/Carpeta.css';
 
 
 class Carpetas extends Component{
@@ -37,9 +37,11 @@ class Carpetas extends Component{
 												name={item.name}
 												description={item.description}
 												recargar={this.cargarData}/>));
-		return (<div className={classes.Archivos}>
-	    	<div className={classes.content_box}>
+		return (<div className={classes.Carpeta}>
+	    	<div className={classes.contentdetails}>
     		<Link to={'/sedes/'+this.props.match.params.idSede+'/ingresar'}><button className={classes.Add}>Crear nueva carpeta</button></Link>
+    		
+    		<Link to="/sedes"><button className={classes.Regresar}>Regresar</button></Link>
 	    		{rows}
         	</div>
 	    </div>);

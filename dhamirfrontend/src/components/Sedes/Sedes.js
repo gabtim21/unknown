@@ -5,6 +5,7 @@ import Sede from '../Sede/Sede';
 import axios from '../../shared/axios-fmcloud';
 
 import classes from '../Sede/Sede.css';
+import saludo from '../../assets/saludo.GIF';
 
 
 class Sedes extends Component{
@@ -69,8 +70,9 @@ class Sedes extends Component{
 		}*/
 		
 		return (<div className={classes.Sedes}>
-	    	<div className={classes.content_box}>
+	    	<div className={classes.contentdetails}>
     		<Link to="/sedes/ingresar"><button className={classes.Add}>Crear nueva sede</button></Link>
+    	 	
 	    		{rows}
         	</div>
 	    </div>);

@@ -1,24 +1,43 @@
 .Sedes {
-	padding-top: 60px;
+	padding-top: 40px;
 
 }
 
-.Sedes div {
+.Sedesa {
 	padding: 20px;
 	margin-left: 10%;
 	margin-right: 10%;
 	border-radius: 20px;
 	border:1px solid black;
 	      font-weight: bolder;
+}
+.contenttwo{
+	padding: 20px;
+	width: 100%;
+	min-height: 1000px;
+	background: rgba(0, 0, 0, 0.35);
+}
 
+.contentdetails{
+	text-align: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.contentdetailsfora{
+	padding: 20px;
+}
+
+.contentdetailsfora img{
+	height: 100px;
+    width: 100px;
+    border-radius: 5%;
 	
 }
-.Sedes .col3 {
-	position: relative;
-  	width: 100%;
-  	min-height: 1px;
-  	padding-right: 15px;
-  	padding-left: 15px;
+.contentdetailsfora p{
+    border-color:  #212C2A;
+    color: #212C2A;
 }
 
 .Sedes table {
@@ -85,6 +104,7 @@ button {
 
 .Add {
 	float: left;
+	width: 100px;
 	margin: 15px ;
 	padding: 10px;
 	font: inherit;
@@ -92,12 +112,13 @@ button {
 	color: white;
 	background-color: #48BFB3;
 	cursor:pointer;
+	
 }
 
 .Add:hover,
 .Add:active{
-	background-color: transparent;
-	color: #48BFB3;
+	background-color: #666633;
+	color: #fff;
 }
 
 .Edit{
@@ -116,7 +137,7 @@ button {
 }
 .Imagen{
 	border-radius: 20px;
-	width: 50px;
-	height: 50px;
+	width: 100px;
+	height: 100px;
 
 }

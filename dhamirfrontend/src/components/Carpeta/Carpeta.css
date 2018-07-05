@@ -1,0 +1,105 @@
+.Carpeta {
+	padding-top: 40px;
+}
+.contenttwo{
+	padding: 20px;
+	width: 100%;
+	min-height: 1000px;
+	background: rgba(0, 0, 0, 0.35);
+}
+
+.contentdetails{
+	text-align: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+
+}
+
+.contentdetailsfora{
+	padding: 20px;
+}
+
+.contentdetailsfora img{
+	height: 70px;
+    width: 70px;
+    border-radius: 5%;
+	
+}
+.contentdetailsfora p{
+    border-color:  #212C2A;
+    color: #212C2A;
+}
+.DetalleCarpeta{
+	color: #fff;
+	background: #22AA99;
+	border:1% solid #fff;
+	border-radius: 5px;
+	transition-duration: 0.4s;
+	padding: 10px;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.Add {
+	float: left;
+	width: 100px;
+	margin: 15px ;
+	padding: 10px;
+	font: inherit;
+	border: 1px solid #fff;
+	color: white;
+	background-color: #48BFB3;
+	cursor:pointer;
+
+}
+
+.Add:hover,
+.Add:active{
+	background-color: #448866;
+	color: #fff;
+}
+
+.Regresar {
+	float: left;
+	width: 100px;
+	margin: 15px ;
+	padding: 10px;
+	font: inherit;
+	border: 1px solid #fff;
+	color: white;
+	background-color: #DD8833;
+	cursor:pointer;
+
+}
+
+.Regresar:hover,
+.Regresar:active{
+	background-color: #CC9933;
+	color: #fff;
+}
+
+.Edit{
+	background-color: #3399FF;
+	border: 1px solid #33CCFF;
+	border-radius: 20px;
+}
+.Edit:hover{
+	background-color: #99FFFF;
+	color: #660000;
+}
+
+.Desc{
+	background-color: #f0b81f;
+	border: 1px solid #f0b81f;
+}
+
+.Elim{
+	background-color: red;
+	border: 1px solid #FF99FF;
+	border-radius: 20px;
+}
+.Elim:hover{
+	background-color: #FF99FF;
+	border-radius: 20px;
+}
