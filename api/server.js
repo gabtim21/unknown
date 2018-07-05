@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 const port = process.env.PORT || 3000;
 
-app.use('view engine','jade');
+app.set('view engine','jade');
 
 app.use(express.static('public'));
 

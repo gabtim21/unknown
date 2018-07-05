@@ -13,6 +13,7 @@
     "body-parser": "^1.18.3",
     "connect-multiparty": "^2.1.0",
     "express": "^4.16.3",
+    "jade": "^1.11.0",
     "jsonwebtoken": "^8.3.0",
     "jwt-simple": "^0.5.1",
     "moment": "^2.22.2",
@@ -22,5 +23,4 @@
   "devDependencies": {
     "nodemon": "^1.17.5"
   }
-  
 }
