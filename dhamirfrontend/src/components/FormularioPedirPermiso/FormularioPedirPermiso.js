@@ -20,11 +20,11 @@ class FormularioPedirPermiso extends Component{
 				},
 				value: '',
 				validation: {
-					required: true
+					required: false
 				},
 				valid: false,
 				touched: false
-			}
+			},
 		},
 		error: false,
 		loading: false,
@@ -38,9 +38,9 @@ class FormularioPedirPermiso extends Component{
 		for (let formElementIdentifier in this.state.carpetaForm){
 			formData.append(formElementIdentifier,this.state.carpetaForm[formElementIdentifier].value);
 		}
-		formData.append('usuario', localStorage.getItem('id'));
-		formData.append('file', this.props.match.params.idFile);
-
+		formData.append('usuario',localStorage.getItem('id'));
+		formData.append('file',this.props.match.params.idFile);
+		console.log('mi formData',formData);
 		this.setState({loading: true, error: false});
 		axios.post('permisos', formData)
 			.then( response => {

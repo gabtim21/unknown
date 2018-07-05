@@ -103,7 +103,8 @@ class FormularioArchivo extends Component{
 		for (let formElementIdentifier in this.state.archivoForm){
 			formData.append(formElementIdentifier,this.state.archivoForm[formElementIdentifier].value);
 		}
-		formData.append('dueno', localStorage.getItem('id'));
+		formData.append('dueno',localStorage.getItem('id'));
+		formData.append('carpeta',this.props.match.params.idCarpeta);
 		console.log('mi formdata',formData);
 		this.setState({loading: true, error: false});
 		axios.post('files', formData)

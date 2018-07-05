@@ -12,7 +12,7 @@ class Carpetas extends Component{
 		data: null
 	}
 	componentDidMount(){
-		this.cargarData()
+		this.cargarData();
 	}
 	cargarData = () => {
 		axios.get('carpetas/bysede/'+this.props.match.params.idSede)

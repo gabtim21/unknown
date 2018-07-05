@@ -21,7 +21,6 @@ class Carpeta extends Component{
 	render(){
 		let botones = (
 			<span>
-				<button className={classes.Edit} onClick='/{props.key}'>Editar</button>
 				<button className={classes.Elim} onClick={this.eliminarHandler}>Eliminar</button>
 			</span>
 			);

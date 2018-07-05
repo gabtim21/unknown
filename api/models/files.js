@@ -37,7 +37,6 @@ const filesSchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'carpetas'
 	},
-
 	dueno: {
 		type: Schema.ObjectId,
 		ref: 'users'

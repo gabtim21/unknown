@@ -16,7 +16,6 @@ const permisoSchema = new Schema({
 	//descargar es basico, es decir vista|subir también permite descargar|eliminar permite todos los anteriores
 	permisos: {
 		type	: String,
-		required: true,
 		enum	: ['descargar','subir','eliminar']
 	}
 }, {timestamps: true});

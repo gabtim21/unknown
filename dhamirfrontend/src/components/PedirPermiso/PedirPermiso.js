@@ -29,10 +29,16 @@ class PedirPermiso extends Component{
 	}
 	render(){
 		let boton = (
+			<span>
 	    	<Link to={'/sedes/'+this.props.match.params.idSede+'/'+this.props.match.params.idCarpeta+'/ingresar'}><button className={classes.Add}>Ingresar archivo</button></Link>
+			<Link to={'/sedes/'+this.props.match.params.idSede+'/'+this.props.match.params.idCarpeta}><button className={classes.Regresar}>Regresar</button></Link>
+			</span>
 			);
 		let botonBasico = (
+			<span>
 	    	<Link to={'/sedes/'+this.props.match.params.idCarpeta+'/permiso'}><button className={classes.Add}>Pedir permisos</button></Link>
+			<Link to={'/sedes/'+this.props.match.params.idCarpeta}><button className={classes.Add}>Regresar</button></Link>
+			</span>
 			);
 		const headers = [
 			'Nombre',
