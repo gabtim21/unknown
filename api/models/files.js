@@ -6,7 +6,6 @@ const filesSchema = new Schema({
 		type: String,
 		trim: true,
 		required: true,
-		match: [/^[a-zA-Z0-9]+$/, 'File invalida'],
 		index: true,
 		unique: true
 	},

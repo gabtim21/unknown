@@ -133,7 +133,11 @@ class Login extends Component{
 		}
 		let authRedirect = null;
 		if ( this.state.isAuthenticated ){
-			authRedirect = (<Redirect to={'/sedes'} />);
+			if(localStorage.getItem('tipo_user')=="alto"){
+				authRedirect = (<Redirect to={'/sedes'} />);
+			} else {
+				authRedirect = (<Redirect to={'/sedes/'+localStorage.getItem('sedes')} />);
+			}
 		}
 		return (
 			<div>

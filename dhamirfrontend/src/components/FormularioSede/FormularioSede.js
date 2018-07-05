@@ -109,7 +109,7 @@ class FormularioSede extends Component{
 		let form = (
 			<div className={Classes.Login}>
 			<form className={Classes.Form} onSubmit={this.submitHandler}>
-			<h4>Ingresa los datos pedidos</h4>
+			<h5>Agregar Sede | Ingresa los datos pedidos</h5>
 				{formElementsArray.map(formElement => (
 					<div className={Classes.Div}>
 					<Input

@@ -21,7 +21,7 @@ class Sede extends Component{
 	render(){
 		return (
 			<div className={classes.Sedes} >
-				<Link to="sedes/carpetas">
+				<Link to={'sedes/'+this.props._id}>
 					<img className={classes.Imagen} src={ImgArchivo}/>
 					<h4><a className={classes.DetalleSede} href="">{this.props.name}</a></h4>
 					<p>{this.props.description}</p><br/>
