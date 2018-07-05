@@ -65,15 +65,12 @@ class Sedes extends Component{
 		}
 		
 		return (<div className={classes.Sedes}>
-<<<<<<< HEAD
+
 	    	<div className={classes.contentdetails}>
-    		<Link to="/sedes/ingresar"><button className={classes.Add}>Crear nueva sede</button></Link>
-    	 	
-=======
-	    	<div className={classes.content_box}>
-	    		{localStorage.getItem('tipo_user')=="alto"?boton:null}
->>>>>>> c71c6500ca7f216028d764a4ab0703cfa11c9842
-	    		{rows}
+	    	{localStorage.getItem('tipo_user')=="alto"?boton:null}
+			{rows}
+    		
+	    		
         	</div>
 	    </div>);
 	}

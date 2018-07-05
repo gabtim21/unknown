@@ -28,7 +28,11 @@ class Carpetas extends Component{
 			});
 	}
 	render(){
-		let boton = (<Link to={'/sedes/'+this.props.match.params.idSede+'/ingresar'}><button className={classes.Add}>Crear nueva carpeta</button></Link>);
+		let boton = (
+			<span>
+			<Link to={'/sedes/'+this.props.match.params.idSede+'/ingresar'}><button className={classes.Add}>Crear nueva carpeta</button></Link>
+			<Link to="/sedes"><button className={classes.Regresar}>Regresar</button></Link>
+			</span>);
 		let rows = null;
 		if(this.state.data!==null)
 			rows = this.state.data.map(item => (<Carpeta
@@ -38,18 +42,12 @@ class Carpetas extends Component{
 												name={item.name}
 												description={item.description}
 												recargar={this.cargarData}/>));
-<<<<<<< HEAD
+
 		return (<div className={classes.Carpeta}>
 	    	<div className={classes.contentdetails}>
-    		<Link to={'/sedes/'+this.props.match.params.idSede+'/ingresar'}><button className={classes.Add}>Crear nueva carpeta</button></Link>
-    		
-    		<Link to="/sedes"><button className={classes.Regresar}>Regresar</button></Link>
-=======
-		return (<div className={classes.Archivos}>
-	    	<div className={classes.content_box}>
-				{localStorage.getItem('tipo_user')=="alto"?boton:null}
->>>>>>> c71c6500ca7f216028d764a4ab0703cfa11c9842
+	    	{localStorage.getItem('tipo_user')=="alto"?boton:null}
 	    		{rows}
+				
         	</div>
 	    </div>);
 	}
