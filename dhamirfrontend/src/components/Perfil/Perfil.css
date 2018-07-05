@@ -1,7 +1,4 @@
-.Perfil {
-	margin: 25px;
-	padding: 25px;
-}
+
 .Perfil td{
 	float: left;
 }
@@ -11,7 +8,7 @@
 
 .Imagen img{
 	margin: 50px;
-	width: 300px;
+	width: 250px;
     height: auto;
     align-content: center;
     border: 2px solid #f2f2f2;
@@ -26,4 +23,8 @@
 .Info{
 	padding: 30px;
 	width: 300px;
+}
+.Titulo{
+	text-align: center;
+	padding: 25px;
 }

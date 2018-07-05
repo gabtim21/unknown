@@ -1,16 +1,46 @@
 .Footer {
 	color: #FFF;
 	background-color:#373938;
-	padding: 10px 10px;
+	padding: 5px 5px;
+	width: 100%;
+	left:0px;
+   	bottom:0px;
+   	font-size: 12px;
 
 }
-.links p{
+.links {
 	border: 1%;
     border-style: none none solid none;
-        border-color:  #212C2A;
-        color: #48C5B7;
+    border-color:  #212C2A;
+    color: #fff;
+    margin-top: 20px;
 }
-.links p:hover{
+.links:hover{
 	background:  #212C2A;
 
 }
+.imag {
+	
+	height: 100px;
+    max-width: 100px;
+    border-radius: 5%;
+}
+.containerAll{
+	display: flex;
+	padding-left: 45%;
+
+}
+.container1 {
+	max-width: 300px;
+}
+
+.container2 {
+	max-width: 300px;	
+}
+.container3 {
+	max-width: 300px;	
+}
+.container4 {
+	max-width: 300px;	
+}
+
