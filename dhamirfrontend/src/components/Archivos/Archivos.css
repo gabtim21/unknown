@@ -6,7 +6,13 @@
 	padding: 20px;
 	width: 100%;
 	min-height: 1000px;
-	background: rgba(0, 0, 0, 0.35);
+	background: rgba(204,204,102, 0.35);
+}
+.contentone{
+	padding: 20px;
+	width: 100%;
+	min-height: 1000px;
+	background: rgba(11,170,159, 0.35);
 }
 
 .contentdetails{
