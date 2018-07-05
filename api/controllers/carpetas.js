@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const Sede = require('../models/sedes.js');
 const Carpeta = require('../models/carpetas.js');
-const File = require('../models/files.js');
+const Archivo = require('../models/files.js');
 
 const exposedFields = [
 	'name',
@@ -11,29 +11,6 @@ const exposedFields = [
 	'fecha',
 	'sedes'
 ];
-
-/*function saveSede(req,res){
-	var sede = new Sede();
-	var params = req.body;
-
-	sede.name = params.name;
-	sede.description = params.description;
-	sede.imagen = 'NULL';
-
-	sede.save((err, sedeStored) =>{
-		if(err){
-			res.status(500).send({message: 'Erro Gabtimm'});
-		}else{
-			if(!sedeStored){
-				res.status(404).send({message: 'No fue guardado'});
-			}else{
-				res.status(200).send({sede: sedeStored});
-			}
-		}
-	});
-	
-
-}*/
 
 module.exports = {
 	create : (req,res,next) => {
@@ -159,7 +136,23 @@ module.exports = {
 				});
 			});
 	},
-
+	deleteAll: (req,res,next) => {
+		const id = req.params.id;
+		Archivo.remove({carpeta: id})
+			.exec()
+			.then(result => {
+				Carpeta.remove({_id: id}).exec();
+				res.status(200).json({
+					message: 'Todas los archivos dentro de la carpeta eliminados'
+				});
+			})
+			.catch(err => {
+				console.log(err);
+				res.status(500).json({
+					error: err
+				});
+			});
+	},
 	upload: (req,res,next) =>{
 		const carpetaId = req.params.id;
 		const file_name = 'No sube..';

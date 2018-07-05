@@ -9,8 +9,8 @@ import ImgArchivo from '../../assets/archivo.jpg';
 
 class Carpeta extends Component{
 	eliminarHandler = () => {
-		if (window.confirm("¿Seguro que quiere eliminarlo?")) {
-		axios.delete('carpetas/'+this.props._id+'')
+		if (window.confirm("¿Seguro que quiere eliminarlo? Todos los archivos dentro tambien se eliminaran")) {
+		axios.delete('carpetas/all/'+this.props._id+'')
 			.then(response => {
 				this.props.recargar()
 			})

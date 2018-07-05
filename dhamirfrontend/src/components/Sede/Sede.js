@@ -6,7 +6,6 @@ import axios from '../../shared/axios-fmcloud';
 import classes from './Sede.css';
 import ImgArchivo from '../../assets/archivo.jpg';
 
-
 class Sede extends Component{
 	eliminarHandler = () => {
 		if (window.confirm("¿Seguro que quiere eliminarlo?")) {

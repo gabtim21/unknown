@@ -17,6 +17,7 @@ router.post('/', uploadImg, CarpetaController.create);
 //router.post('/sede', SedeController.saveSede);
 router.put('/:id', CarpetaController.update);
 router.delete('/:id', CarpetaController.delete);
+router.delete('/all/:id', CarpetaController.deleteAll);
 router.post('/upload-img-carpeta/:id',uploadImg, CarpetaController.upload);
 router.get('/get-img-carpeta/:imageFile', CarpetaController.getImagen);
 

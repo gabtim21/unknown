@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const Sede = require('../models/sedes.js');
 const Carpeta = require('../models/carpetas');
-const File = require('../models/files');
+const Archivo = require('../models/files');
 
 const exposedFields = [
 	'name',
@@ -137,7 +137,6 @@ module.exports = {
 				});
 			});
 	},
-
 	upload: (req,res,next) =>{
 		const sedeId = req.params.id;
 		const file_name = 'No sube..';
